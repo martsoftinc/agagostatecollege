@@ -37,6 +37,9 @@
     </div>
   </section>
 
+    
+
+
   {{-- ALERTS --}}
   @if(session('success'))
     <div class="mt-4 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold rounded-xl flex items-center justify-between">
@@ -242,6 +245,15 @@
                 </span>
               </td>
               <td class="py-3.5 px-5 text-right flex justify-end items-center gap-1.5">
+
+
+                <!-- ✅ ADD THIS BUTTON HERE (inside the loop) -->
+                <a href="{{ route('admin.class-streams.subjects', $cs->id) }}"
+                  class="px-2.5 py-1 bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-700 font-semibold rounded-md transition text-[11px] inline-flex items-center gap-1">
+                  <i class="fa-solid fa-book"></i>
+                  <span>Subjects</span>
+                </a>
+
                 <button 
                   type="button"
                   @click="activeClassStream = { 
@@ -264,6 +276,8 @@
                   <i class="fa-solid fa-trash"></i>
                   <span>Delete</span>
                 </button>
+
+                
               </td>
             </tr>
           @empty

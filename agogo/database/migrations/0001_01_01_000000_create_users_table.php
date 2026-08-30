@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('first_name')->nullable();;
             $table->string('last_name')->nullable();;
             $table->string('other_names')->nullable();
+            $table->string('profile_picture')->nullable();
+            $table->string('status')->nullable();
           
             $table->enum('role', ['admin', 'teacher', 'student'])->default('student');
            
@@ -33,6 +35,7 @@ return new class extends Migration
             $table->string('student_id')->nullable()->unique()->comment('Agogo State College Index No.');
             $table->string('pincode', 255)->nullable()->comment('Portal access PIN (Defaults to Year of Birth)');
             $table->string('programme')->nullable()->comment('e.g. General Science, Business, General Arts');
+            $table->string('course')->nullable()->comment('e.g. General Science, Business, General Arts');
             $table->string('class')->nullable()->comment('e.g. Form 1 Sci 1, Form 2 Arts 2');
             $table->enum('track', ['Green', 'Gold', 'Single Track'])->default('Green')->nullable()->comment('GES Double Track assignment');
             $table->string('house')->nullable()->comment('e.g. House 1 - Owusu Ansah, House 2');

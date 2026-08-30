@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -14,29 +15,48 @@ class User extends Authenticatable
 
     protected $fillable = [
         
-        'first_name',
         'name',
+        'first_name',
         'last_name',
         'other_names',
-        'phone',
-        'region',
-        'nationality',
-        'staff_id',
-        'student_id',
-        'pincode',
-        'qualification',
-        'email',
-        'password',
+        'profile_picture',
         'role',
         'status',
+        'full_name',
+        'qualification',
+        'class_stream_id',
+        'phone',
         'is_active',
+        'email',
         'email_verified_at',
         'email_verification_code',
         'email_verification_sent_at',
+        'student_id',
+        'pincode',
+        'pincode_updated_at',
+        'programme',
+        'course',
+        'class',
+        'track',
+        'house',
+        'boarding',
+        'date_of_birth',
+        'place_of_residence',
+        'address',
+        'guardian_name',
+        'guardian_phone',
+        'guardian_occupation',
+        'jhs_previous_school',
+        'jhs_index_number',
+        'jhs_position_held',
+        'interests_hobbies',
+        'medical_conditions',
+        'password',
         'two_factor_enabled',
         'two_factor_code',
         'two_factor_sent_at',
-        'class_stream_id',
+        'staff_id',
+        'rank',
     ];
 
     protected $hidden = [
@@ -47,6 +67,10 @@ class User extends Authenticatable
         'two_factor_code',          // never expose codes in API responses
     ];
 
+    protected $appends = [
+    'profile_picture_url',
+    ];
+
     protected $casts = [
         'email_verified_at'          => 'datetime',
         'email_verification_sent_at' => 'datetime',
@@ -54,6 +78,17 @@ class User extends Authenticatable
         'password'                   => 'hashed',
         'two_factor_enabled'         => 'boolean',
     ];
+
+
+    public function getProfilePictureUrlAttribute(): string
+    {
+        if ($this->profile_picture) {
+            return asset('storage/' . $this->profile_picture);
+        }
+
+        // Optional default avatar
+        return asset('images/default-avatar.png');
+    }
 
     /* ── Name mutators: keep full_name in sync ── */
 
@@ -178,4 +213,48 @@ class User extends Authenticatable
     {
         return str_pad(random_int(100000, 999999), 6, '0', STR_PAD_LEFT);
     }
+
+   protected static function booted()
+{
+    static::creating(function (User $user) {
+        // Only apply student logic
+        if (($user->role ?? null) !== 'student') {
+            return;
+        }
+
+        // 1. Auto-generate student_id if blank
+        if (empty($user->student_id)) {
+            $user->student_id = static::generateNextStudentId();
+        }
+
+        // 2. Auto-generate pincode from Year of Birth if blank
+        if (empty($user->pincode) && !empty($user->date_of_birth)) {
+            $user->pincode = date('Y', strtotime($user->date_of_birth));
+        }
+
+        // 3. Default status
+        if (empty($user->status)) {
+            $user->status = 'Active';
+        }
+    });
+}
+
+/**
+ * Generate sequential student_id: ASC/{YEAR}/{SEQUENCE}
+ * Example: ASC/2026/0001
+ */
+public static function generateNextStudentId(): string
+{
+    $prefix = 'ASC/' . date('Y') . '/';
+
+    $latestNumber = \Illuminate\Support\Facades\DB::table('users')
+        ->where('student_id', 'like', $prefix . '%')
+        ->selectRaw("MAX(CAST(SUBSTRING_INDEX(student_id, '/', -1) AS UNSIGNED)) as max_seq")
+        ->value('max_seq');
+
+    $nextSequence = ((int) ($latestNumber ?? 0)) + 1;
+
+    return $prefix . str_pad($nextSequence, 4, '0', STR_PAD_LEFT);
+}
+    
 }

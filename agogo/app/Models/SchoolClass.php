@@ -16,7 +16,7 @@ class SchoolClass extends Model
 
     public function classStreams(): HasMany
     {
-        return $table = $this->hasMany(ClassStream::class);
+        return $this->hasMany(ClassStream::class);
     }
 
     public function streams(): BelongsToMany

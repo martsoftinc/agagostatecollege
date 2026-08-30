@@ -12,5 +12,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::policy(LessonPlan::class, LessonPlanPolicy::class);
+        view()->composer('*', function ($view) {
+        $view->with('student', auth()->user());
+        });
     }
 }

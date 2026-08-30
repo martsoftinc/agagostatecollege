@@ -146,7 +146,7 @@ class LoginControllerStudent extends Controller
 
         Log::info("Student logged out: {$user->student_id}");
 
-        return redirect('/student-portal')->with('success', 'You have been logged out successfully.');
+        return redirect('student.login')->with('success', 'You have been logged out successfully.');
     }
 
     /**

@@ -145,6 +145,14 @@
           <span class="px-2 py-0.5 bg-asc-yellow text-asc-green-dark text-xs font-bold rounded-full">12</span>
         </a>
 
+        <a href="{{ route('admin.academic-setup.index') }}"
+          class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
+            {{ request()->routeIs('admin.academic-setup.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
+            text-sm transition">
+          <i class="fa-solid fa-calendar-days w-5 text-center"></i>
+          <span>Academic Setup</span>
+        </a>
+
         <a href="{{route('admin.students.index')}}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
           <i class="fa-solid fa-user-graduate w-5 text-center"></i>
           <span>Student Directory</span>
@@ -153,6 +161,14 @@
         <a href="{{route('admin.classes.index')}}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
           <i class="fa-solid fa-chalkboard-user w-5 text-center"></i>
           <span>Classes & Streams</span>
+        </a>
+
+        <a href="{{ route('admin.subjects.index') }}"
+          class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
+            {{ request()->routeIs('admin.subjects.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
+            text-sm transition">
+          <i class="fa-solid fa-book w-5 text-center"></i>
+          <span>Subjects</span>
         </a>
 
         <a href="{{route('admin.staff.index')}}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
@@ -175,6 +191,18 @@
         <i class="fa-solid fa-bullhorn w-5 text-center"></i>
         <span>Notice Board</span>
       </a>
+
+      
+
+      <a href="{{ route('admin.disciplinary.index') }}"
+          class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
+            {{ request()->routeIs('admin.disciplinary.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
+            text-sm transition">
+          <i class="fa-solid fa-gavel w-5 text-center"></i>
+          <span>Disciplinary</span>
+      </a>
+
+
 
         <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
           <i class="fa-solid fa-file-lines w-5 text-center"></i>

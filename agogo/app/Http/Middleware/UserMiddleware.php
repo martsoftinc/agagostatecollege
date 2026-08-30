@@ -16,6 +16,6 @@ class UserMiddleware
         }
 
         // Redirect or handle unauthorized access for non-admin users
-        return redirect('/login')->with('error', 'Unauthorized access.');
+        return redirect('student.login')->with('error', 'Unauthorized access.');
     }
 }

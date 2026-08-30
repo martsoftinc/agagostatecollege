@@ -22,9 +22,14 @@ use App\Http\Controllers\Student\DashboardController as StudentDashboardControll
 use App\Http\Controllers\Student\NoticeController as StudentNoticeController;
 use App\Http\Controllers\LoginControllerStudent;
 use App\Http\Controllers\Auth\ForgotPincodeController;
-
-
-
+use App\Http\Controllers\PincodeController;
+use App\Http\Controllers\Admin\ExeatController;
+use App\Http\Controllers\Student\ExeatController as StudentExeatController ;
+use App\Http\Controllers\Admin\DisciplinaryRecordController;
+use App\Http\Controllers\Student\DisciplinaryRecordController as StudentDisciplinaryRecordController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\Admin\AcademicSetupController;
+use App\Http\Controllers\Teacher\ScoreController;
 
 
 
@@ -133,7 +138,9 @@ Route::get('teacher/dashboard', [DashboardController::class, 'index'])->name('te
 Route::get('teacher/notices', [TeacherNoticeController::class, 'index'])->name('teacher.notices.index');
 Route::get('teacher/notices/{notice}', [TeacherNoticeController::class, 'show'])->name('teacher.notices.show');
 
-
+Route::get('teacher/scores', [ScoreController::class, 'index'])->name('teacher.scores.index');
+Route::get('teacher/scores/{classStream}/{subject}', [ScoreController::class, 'enter'])->name('teacher.scores.enter');
+Route::post('teacher/scores/{classStream}/{subject}', [ScoreController::class, 'store'])->name('teacher.scores.store');
 
 });
 
@@ -182,11 +189,9 @@ Route::post('student/forgot-pincode', [ForgotPincodeController::class, 'sendPinc
 
 Route::middleware(['auth', 'user'])->group(function () {
 
-
-Route::get('/user-dashboard', function () {
-    return view('users.dashboard');
-})->name('dashboard');
-
+Route::get('/student/contact', function () {
+    return view('student.contact');
+})->name('student.contact');
 
 Route::get('/user/profile',          [UserProfileController::class, 'show'])->name('user.profile');
 Route::put('user/profile',          [UserProfileController::class, 'updateProfile'])->name('user.profile.update');
@@ -199,9 +204,16 @@ Route::get('student/notices', [StudentNoticeController::class, 'index'])->name('
 Route::get('student/notices/{notice}', [StudentNoticeController::class, 'show'])->name('student.notices.show');
 
 
-    
+Route::get('/pincode/change', [PincodeController::class, 'edit'])->name('student.pincode.edit');
+Route::put('/pincode/change', [PincodeController::class, 'update'])->name('pincode.update');    
 
 
+
+Route::get('student/exeats', [StudentExeatController::class, 'index'])->name('student.exeats.index');
+Route::get('student/exeats/{exeat}', [StudentExeatController::class, 'show'])->name('student.exeats.show');
+
+Route::get('student/disciplinary', [StudentDisciplinaryRecordController::class, 'index'])->name('student.disciplinary.index');
+Route::get('student/disciplinary/{disciplinary}', [StudentDisciplinaryRecordController::class, 'show'])->name('student.disciplinary.show');
 });
 
 
@@ -257,6 +269,18 @@ Route::post('admin/classes/store', [ClassController::class, 'storeClass'])->name
 Route::post('admin/streams/store', [ClassController::class, 'storeStream'])->name('admin.streams.store');
 Route::post('admin/class-streams/assign', [ClassController::class, 'assignStream'])->name('admin.class-streams.assign');
 
+Route::get('/subjects', [SubjectController::class, 'index'])->name('admin.subjects.index');
+Route::post('/subjects', [SubjectController::class, 'store'])->name('admin.subjects.store');
+Route::put('/subjects/{subject}', [SubjectController::class, 'update'])->name('admin.subjects.update');
+Route::delete('/subjects/{subject}', [SubjectController::class, 'destroy'])->name('admin.subjects.destroy');
+
+// Assign subjects to ClassStream
+Route::post('/class-streams/{classStream}/subjects', [ClassController::class, 'assignSubject'])->name('admin.class-streams.assign-subject');
+
+Route::delete('/class-streams/{classStream}/subjects/{subject}', [ClassController::class, 'removeSubject'])->name('admin.class-streams.remove-subject');
+Route::get('/class-streams/{classStream}/subjects', [ClassController::class, 'manageSubjects'])->name('admin.class-streams.subjects');
+
+
 // Update
 Route::put('admin/classes/{schoolClass}', [ClassController::class, 'updateClass'])->name('admin.classes.update');
 Route::put('admin/streams/{stream}', [ClassController::class, 'updateStream'])->name('admin.streams.update');
@@ -290,6 +314,9 @@ Route::post('admin/students/batch-wassce', [StudentController::class, 'batchWass
 
 Route::get('admin/students/export-csv', [StudentController::class, 'exportCsv'])->name('admin.students.export-csv');
 
+Route::get('students/export', [StudentController::class, 'export'])->name('admin.students.export');
+Route::post('students/import', [StudentController::class, 'import'])->name('admin.students.import');
+
 
 Route::get('admin/lesson-plans', [AdminLessonPlanController::class, 'index'])->name('admin.lesson-plans.index');
 Route::get('admin/lesson-plans/{lessonPlan}', [AdminLessonPlanController::class, 'show'])->name('admin.lesson-plans.show');
@@ -303,12 +330,28 @@ Route::put('admin/notices/{notice}', [NoticeController::class, 'update'])->name(
 Route::delete('admin/notices/{notice}', [NoticeController::class, 'destroy'])->name('admin.notices.destroy');
 
 
+Route::get('admin/exeats', [ExeatController::class, 'index'])->name('admin.exeats.index');
+Route::post('admin/exeats', [ExeatController::class, 'store'])->name('admin.exeats.store');
+Route::put('admin/exeats/{exeat}', [ExeatController::class, 'update'])->name('admin.exeats.update');
+Route::delete('admin/exeats/{exeat}', [ExeatController::class, 'destroy'])->name('admin.exeats.destroy');
+Route::patch('admin/exeats/{exeat}/return', [ExeatController::class, 'markReturned'])->name('admin.exeats.return');
 
 
 
+Route::get('admin/disciplinary', [DisciplinaryRecordController::class, 'index'])->name('admin.disciplinary.index');
+Route::post('admin/disciplinary', [DisciplinaryRecordController::class, 'store'])->name('admin.disciplinary.store');
+Route::put('admin/disciplinary/{disciplinary}', [DisciplinaryRecordController::class, 'update'])->name('admin.disciplinary.update');
+Route::delete('admin/disciplinary/{disciplinary}', [DisciplinaryRecordController::class, 'destroy'])->name('admin.disciplinary.destroy');
+Route::patch('admin/disciplinary/{disciplinary}/resolve', [DisciplinaryRecordController::class, 'markResolved'])->name('admin.disciplinary.resolve');
 
 
 
+Route::get('/academic-setup', [AcademicSetupController::class, 'index'])->name('admin.academic-setup.index');
+Route::post('/academic-setup/years', [AcademicSetupController::class, 'storeYear'])->name('admin.academic-setup.store-year');
+Route::patch('/academic-setup/years/{academicYear}/current', [AcademicSetupController::class, 'setCurrentYear'])->name('admin.academic-setup.set-current-year');
+Route::patch('/academic-setup/semesters/{semester}/current', [AcademicSetupController::class, 'setCurrentSemester'])->name('admin.academic-setup.set-current-semester');
+Route::patch('/academic-setup/semesters/{semester}/lock', [AcademicSetupController::class, 'toggleLock'])->name('admin.academic-setup.toggle-lock');
+Route::put('/academic-setup/weights', [AcademicSetupController::class, 'updateWeights'])->name('admin.academic-setup.update-weights');
 
 
 #});

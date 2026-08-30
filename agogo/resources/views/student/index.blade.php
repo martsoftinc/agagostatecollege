@@ -53,7 +53,7 @@
     </a>
 
     <!-- CARD 2: CHANGE PIN CODE (Light Amber) -->
-    <a href="#change-pin" class="group bg-amber-50 hover:bg-amber-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-amber-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
+    <a href="{{route('student.pincode.edit')}}" class="group bg-amber-50 hover:bg-amber-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-amber-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
       <i class="fa-solid fa-key text-amber-900/10 text-5xl sm:text-7xl absolute -right-3 -bottom-3 transition-transform group-hover:scale-110"></i>
 
       <div>
@@ -93,7 +93,7 @@
     </a>
 
     <!-- CARD 4: DISCIPLINARY REPORT (Light Red) -->
-    <a href="#disciplinary-report" class="group bg-red-50 hover:bg-red-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-red-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
+    <a href="{{route('student.disciplinary.index')}}" class="group bg-red-50 hover:bg-red-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-red-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
       <i class="fa-solid fa-gavel text-red-900/10 text-5xl sm:text-7xl absolute -right-3 -bottom-3 transition-transform group-hover:scale-110"></i>
 
       <div>
@@ -133,7 +133,7 @@
     </a>
 
     <!-- CARD 6: EXEAT TRACKER (Light Orange) -->
-    <a href="#exeat-tracker" class="group bg-orange-50 hover:bg-orange-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-orange-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
+    <a href="{{route('student.exeats.index')}}" class="group bg-orange-50 hover:bg-orange-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-orange-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
       <i class="fa-solid fa-person-walking-arrow-right text-orange-900/10 text-5xl sm:text-7xl absolute -right-3 -bottom-3 transition-transform group-hover:scale-110"></i>
 
       <div>
@@ -153,7 +153,7 @@
     </a>
 
     <!-- CARD 7: CONTACT SCHOOL (Light Teal) -->
-    <a href="#contact-school" class="group bg-teal-50 hover:bg-teal-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-teal-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
+    <a href="{{route('student.contact')}}" class="group bg-teal-50 hover:bg-teal-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-teal-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
       <i class="fa-solid fa-phone text-teal-900/10 text-5xl sm:text-7xl absolute -right-3 -bottom-3 transition-transform group-hover:scale-110"></i>
 
       <div>

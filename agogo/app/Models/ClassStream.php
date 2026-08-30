@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ClassStream extends Model
@@ -39,4 +40,12 @@ class ClassStream extends Model
     {
         return "{$this->schoolClass->name} {$this->stream->name}";
     }
+
+    public function subjects(): BelongsToMany
+{
+    return $this->belongsToMany(Subject::class, 'class_stream_subject')
+                ->withPivot(['id', 'teacher_id', 'is_core', 'sort_order'])
+                ->withTimestamps()
+                ->orderByPivot('sort_order');
+}
 }

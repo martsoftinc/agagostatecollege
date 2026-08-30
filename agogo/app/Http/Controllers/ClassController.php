@@ -7,6 +7,7 @@ use App\Models\SchoolClass;
 use App\Models\Stream;
 use App\Models\ClassStream;
 use App\Models\User;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class ClassController extends Controller
@@ -24,6 +25,65 @@ class ClassController extends Controller
 
         return view('admin.classes.index', compact('classes', 'streams', 'classStreams', 'teachers'));
     }
+
+
+
+public function assignSubject(Request $request, ClassStream $classStream)
+{
+    $validated = $request->validate([
+        'subject_id'  => 'required|exists:subjects,id',
+        'teacher_id'  => 'nullable|exists:users,id',
+        'is_core'     => 'required|boolean',
+        'sort_order'  => 'nullable|integer|min:0',
+    ]);
+
+    // Prevent duplicate
+    if ($classStream->subjects()->where('subject_id', $validated['subject_id'])->exists()) {
+        return redirect()->back()->with('error', 'This subject is already assigned to the class!');
+    }
+
+    $classStream->subjects()->attach($validated['subject_id'], [
+        'teacher_id' => $validated['teacher_id'] ?? null,
+        'is_core'    => $validated['is_core'],
+        'sort_order' => $validated['sort_order'] ?? 0,
+    ]);
+
+    return redirect()->back()->with('success', 'Subject assigned successfully!');
+}
+
+
+
+public function removeSubject(ClassStream $classStream, Subject $subject)
+{
+    $classStream->subjects()->detach($subject->id);
+
+    return redirect()->back()->with('success', 'Subject removed from class!');
+}
+
+
+
+public function manageSubjects(ClassStream $classStream)
+{
+    $classStream->load(['schoolClass', 'stream', 'subjects']);// eager load
+
+    $assignedSubjectIds = $classStream->subjects->pluck('id')->toArray();
+
+    $availableSubjects = \App\Models\Subject::where('is_active', true)
+        ->whereNotIn('id', $assignedSubjectIds)
+        ->orderBy('name')
+        ->get();
+
+    $teachers = \App\Models\User::where('role', 'teacher')->orderBy('name')->get();
+
+    return view('admin.classes.manage-subjects', compact(
+        'classStream',
+        'availableSubjects',
+        'teachers'
+    ));
+}
+
+
+
 
     public function storeClass(Request $request)
     {

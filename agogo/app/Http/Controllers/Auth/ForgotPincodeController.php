@@ -74,7 +74,8 @@ class ForgotPincodeController extends Controller
 
         Log::info("Pincode sent successfully to: {$user->phone} for student: {$user->student_id}");
 
-        return back()->with('success', 'A new pincode has been sent to your registered phone number.');
+        return redirect()->route('student.login')
+        ->with('success', 'A new pincode has been sent to your registered phone number.Please wait for 5 mniutes. If you dont recieve it, request a new one');
     }
 
     /**
