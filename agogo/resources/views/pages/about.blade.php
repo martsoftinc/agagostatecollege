@@ -51,7 +51,7 @@
     </div>
     <div>
       <img
-        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+        src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/469569531_886609433678394_1892076476991391087_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x1084&ctp=s1440x1084&_nc_cat=105&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeFJg_4crS62S3o_MiRcj4GBf6sA3nTJjdN_qwDedMmN0zapdhOlCdzMZNFUHdA2W6WJZGQWfXCS1YNvHJoGDW-k&_nc_ohc=qvjLpzjr6-MQ7kNvwGVdtAS&_nc_oc=Ado14wud3FKf3kXccoZBJFAXpOxfjLPO5wZ4wRXrAEphsjB3NxVVzI-JatW3lfqbyss&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=yUalrY2xeDSBWh-29ApmGw&_nc_ss=7b2a8&oh=00_AQJudo_3iXL4GMmqZlkHH9pYKU9JVm8vQNscrixp_XD5nQ&oe=6A9C6B50"
         alt="Agogo State College campus and students"
         class="w-full h-64 sm:h-[400px] lg:h-[440px] object-cover rounded-[2rem]"
         loading="lazy"
@@ -171,7 +171,7 @@
     <div class="grid lg:grid-cols-2 gap-10 sm:gap-16 items-start">
       <div>
         <img
-          src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=700&q=80"
+          src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/468908155_18035816873366738_6237712593345399938_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHJJROcPjEMh5zNnthfPFxGIkuBnV50IpMiS4GdXnQik7036zV0-RmHPACIkypC7eaGHfKZEeRJ0eeCQ6tknKkx&_nc_ohc=eUu_fg16V9YQ7kNvwGjgOcS&_nc_oc=Adpn-umZOq7Qc_gJqBQmWka21S8EUKaaSDfIYdikS3KsCWppVECkEPmp-XhsHBONEV8&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=WVcwkJXUJ9QJphtxXrEBlQ&_nc_ss=7b2a8&oh=00_AQKgxzDmt1shbF2ga3gVUJgQFcEPO5N7KBDHX_eYiPgQDg&oe=6A9C6BE0"
           alt="Mrs. Comfort Asante-Boateng, Headmistress of Agogo State College"
           class="w-full h-64 sm:h-[400px] lg:h-[480px] object-cover rounded-[2rem]"
           loading="lazy"

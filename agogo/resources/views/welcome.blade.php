@@ -16,14 +16,14 @@
             <span class="inline-block text-lime text-xs font-semibold tracking-widest uppercase mb-3">Welcome to Agogo State College</span>
             <h1 class="text-white font-extrabold text-3xl sm:text-5xl lg:text-[3.2rem] leading-[1.08] tracking-tightish">Shaping character, sharpening minds since 1958.</h1>
             <p class="mt-4 sm:mt-6 text-white/80 max-w-md leading-relaxed text-sm sm:text-base">A boarding senior high school in Agogo, Ashanti Region, committed to academic excellence, discipline and service.</p>
-            <a href="#admission" class="mt-6 sm:mt-8 inline-flex items-center gap-2 bg-lime text-forest-deep font-semibold px-6 sm:px-7 py-3 rounded-full hover:bg-lime-soft transition-colors w-fit text-sm sm:text-base">Apply for admission <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            <a href="/admission" class="mt-6 sm:mt-8 inline-flex items-center gap-2 bg-lime text-forest-deep font-semibold px-6 sm:px-7 py-3 rounded-full hover:bg-lime-soft transition-colors w-fit text-sm sm:text-base">Apply for admission <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
           </div>
         </div>
       </div>
 
       <!-- Slide 2 -->
       <div class="slide absolute inset-0" data-slide="1">
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80" alt="Students in a classroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <img src="https://scontent.facc1-1.fna.fbcdn.net/v/t51.75761-15/473634167_18040519970366738_7529715757283291203_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x960&ctp=s1280x960&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ELmsFkAoIsAQ7kNvwG6YOaW&_nc_oc=Ado1ondby1YxYobLZFFNNiC0f3KjwLLH581__jnhI8a1o8wSQdGPxPjzNvvo7aK8JiM&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=0EovmNs7nRz7A42_iS5u5g&_nc_ss=7b289&oh=00_AQKDZlVg0svZW1OGXcOBETH8NFXMCDPbbPXk4aJHivC4xA&oe=6A9C64CA" alt="Students in a classroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -37,7 +37,7 @@
 
       <!-- Slide 3 -->
       <div class="slide absolute inset-0" data-slide="2">
-        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1600&q=80" alt="Science laboratory session" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <img src="https://scontent.facc6-1.fna.fbcdn.net/v/t51.75761-15/479648539_18043461386366738_1330013205500627779_n.jpg?stp=dst-jpg_tt6&cstp=mx1170x864&ctp=s1170x864&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFxtl8tFaspWi1m9amPCIAt9rNYFn-EVt72s1gWf4RW3oJ0X27i4SW1d94mxzRAAcB99lLNYu9Ry2wYljxs4Ien&_nc_ohc=syDus5E-dsgQ7kNvwHjmNIi&_nc_oc=AdrJ25-jEZAhm8M9btJwexkp6EfG5zTAj5S7Ld5uQ0AdBthDI582UMgH6RLQp48wXAY&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=TGdntMAN6FlbYa2Z2VifNQ&_nc_ss=7b2a8&oh=00_AQI0_bh7-8tEvmjJSJVMnN7hesc9GDKc57sVjgu74fjrBw&oe=6A9C829E" alt="Science laboratory session" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -51,7 +51,7 @@
 
       <!-- Slide 4 -->
       <div class="slide absolute inset-0" data-slide="3">
-        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1600&q=80" alt="Students playing sports on the field" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <img src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/484087865_964116379252963_1898646267755036964_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFZtrpdCNB18a-TiycXkOQA40-sYDruhn7jT6xgOu6GfjFmm-1Z8gqm6DJ863hw9Ar86bgDbTXTmgtHmQxIYFEh&_nc_ohc=kZnEb9N5GdwQ7kNvwGcHPAr&_nc_oc=AdobYyioBFpeZ6SmHSyxYU8-uOmuAL5ueo7H1L-WrpKzz670gCUlNCfs6WW_K5XL1A4&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=jYFr-y2FBVdnuHqHWh1tuA&_nc_ss=7b2a8&oh=00_AQKtyUvmme56osITFRGBchajYowC8Q4RqoGBDTfvJBF_JA&oe=6A9C56C7" alt="Students playing sports on the field" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -65,7 +65,7 @@
 
       <!-- Slide 5 -->
       <div class="slide absolute inset-0" data-slide="4">
-        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80" alt="Graduating students celebrating" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <img src="https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468833342_18035816819366738_3933003337504937330_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEwosTrP3Wpkx5G-sd9y4ZA8dW4bQvvab_x1bhtC-9pv4eKP3gd1I3bvpPkQu6sdb716aLiqnWyrWrRS_PoYCd-&_nc_ohc=VuXOeHJufIoQ7kNvwEhoksc&_nc_oc=AdqyCOS3eGgmsFSuh6hi9XtVrraH1SO3Yz2FHsWvO8I6FObxxfXejqacRtILPERCeuo&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=A5R5fm-AVbbOBuz8o4AAWg&_nc_ss=7b2a8&oh=00_AQIrq85YyQ8VaHs-8SLvwox64yocTcgz_Q0fh9nhFPQHqw&oe=6A9C5557" alt="Graduating students celebrating" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -98,7 +98,7 @@
 <!-- ============ HEADMISTRESS' WELCOME ============ -->
 <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 sm:gap-16 items-start">
   <div>
-    <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=700&q=80" alt="Headmistress of Agogo State College" class="w-full h-64 sm:h-[400px] lg:h-[480px] object-cover rounded-[2rem]">
+    <img src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/468908155_18035816873366738_6237712593345399938_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHJJROcPjEMh5zNnthfPFxGIkuBnV50IpMiS4GdXnQik7036zV0-RmHPACIkypC7eaGHfKZEeRJ0eeCQ6tknKkx&_nc_ohc=eUu_fg16V9YQ7kNvwGjgOcS&_nc_oc=Adpn-umZOq7Qc_gJqBQmWka21S8EUKaaSDfIYdikS3KsCWppVECkEPmp-XhsHBONEV8&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=WVcwkJXUJ9QJphtxXrEBlQ&_nc_ss=7b2a8&oh=00_AQKgxzDmt1shbF2ga3gVUJgQFcEPO5N7KBDHX_eYiPgQDg&oe=6A9C6BE0" alt="Headmistress of Agogo State College" class="w-full h-64 sm:h-[400px] lg:h-[480px] object-cover rounded-[2rem]">
     <a href="#" class="mt-5 inline-flex items-center justify-center gap-2 bg-forest text-white font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded-full hover:bg-forest-deep transition-colors text-sm sm:text-base">Profile of our Headmistress <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
   </div>
   <div>
@@ -120,7 +120,7 @@
       <p class="mt-3 sm:mt-4 text-white/65 max-w-md leading-relaxed text-sm sm:text-base">Places are limited across all six programmes. Begin your application today and join a school with a proud tradition of excellence.</p>
     </div>
     <div class="relative flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start lg:justify-end">
-      <a href="#" class="inline-flex items-center justify-center gap-2 bg-lime text-forest-deep font-semibold px-6 sm:px-7 py-3 rounded-full hover:bg-lime-soft transition-colors text-sm sm:text-base">Apply now</a>
+      <a href="/admission" class="inline-flex items-center justify-center gap-2 bg-lime text-forest-deep font-semibold px-6 sm:px-7 py-3 rounded-full hover:bg-lime-soft transition-colors text-sm sm:text-base">Apply now</a>
       <a href="tel:+233244000000" class="inline-flex items-center justify-center gap-2 bg-white/10 text-white font-semibold px-6 sm:px-7 py-3 rounded-full hover:bg-white/20 transition-colors text-sm sm:text-base"><i data-lucide="phone-call" class="w-4 h-4"></i> +233 24 400 0000</a>
     </div>
   </div>
@@ -323,9 +323,10 @@
       <div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="PTA Chairman" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mr. Emmanuel Ofori</h3><p class="text-xs sm:text-sm text-muted">PTA Chairman</p></div>
       <div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=300&q=80" alt="PTA Vice Chairperson" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mrs. Linda Asare</h3><p class="text-xs sm:text-sm text-muted">Vice Chairperson</p></div>
       <div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="PTA Secretary" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mr. Daniel Kusi</h3><p class="text-xs sm:text-sm text-muted">Secretary</p></div>
-      <div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80" alt="PTA Treasurer" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mrs. Patricia Adjei</h3><p class="text-xs sm:text-sm text-muted">Treasurer</p></div>
+      <!--<div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80" alt="PTA Treasurer" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mrs. Patricia Adjei</h3><p class="text-xs sm:text-sm text-muted">Treasurer</p></div>
       <div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80" alt="PTA Financial Secretary" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mr. Isaac Gyamfi</h3><p class="text-xs sm:text-sm text-muted">Financial Secretary</p></div>
       <div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" alt="PTA Public Relations Officer" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mrs. Joyce Amankwah</h3><p class="text-xs sm:text-sm text-muted">Public Relations Officer</p></div>
+          -->
     </div>
   </div>
 </section>
