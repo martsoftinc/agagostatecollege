@@ -15,25 +15,25 @@
           ● Active Session • {{ date('Y') }} Academic Year
         </span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-          👋 Welcome, <span class="text-asc-green">{{ $student->name }}</span>!
+          👋 Welcome, <span class="text-asc-green">{{ $student->full_name }}
         </h2>
         <p class="text-slate-600 text-sm mt-1">
-          {{ $student->class ?? '—' }} • {{ $student->programme ?? '—' }}
+          {{ $student->class ?? '—' }} • {{ $student->programme ?? '—' }} • {{ $student->house ?? '—' }}
         </p>
       </div>
 
-      <div class="flex items-center space-x-2 text-xs font-medium text-slate-500 bg-slate-50 px-3 py-2 rounded-lg border border-slate-200 self-start md:self-center">
+      <!--<div class="flex items-center space-x-2 text-xs font-medium text-slate-500 bg-slate-50 px-3 py-2 rounded-lg border border-slate-200 self-start md:self-center">
         <i class="fa-regular fa-calendar-check text-asc-green text-sm"></i>
         <span>Term 2 Assessment Period</span>
       </div>
-    </div>
+    </div> -->
   </section>
 
   <!-- 2. SEVEN ACTION CARDS - LIGHT COLOR PER CARD, ONE ROW DESKTOP / TWO ROWS MOBILE -->
-  <section class="grid grid-cols-4 lg:grid-cols-7 gap-2.5 sm:gap-4 auto-rows-fr">
+  <section class="grid grid-cols-2 lg:grid-cols-6 gap-2.5 sm:gap-4 auto-rows-fr">
 
     <!-- CARD 1: CHECK TERMINAL REPORT (Light Emerald) -->
-    <a href="#terminal-report" class="group bg-emerald-50 hover:bg-emerald-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-emerald-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
+    <a href="{{route('student.reports.index')}}" class="group bg-emerald-50 hover:bg-emerald-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-emerald-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
       <i class="fa-solid fa-file-invoice text-emerald-900/10 text-5xl sm:text-7xl absolute -right-3 -bottom-3 transition-transform group-hover:scale-110"></i>
 
       <div>
@@ -72,25 +72,7 @@
       </div>
     </a>
 
-    <!-- CARD 3: ACADEMIC CALENDAR (Light Slate) -->
-    <a href="#academic-calendar" class="group bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-300 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
-      <i class="fa-solid fa-calendar-days text-slate-900/10 text-5xl sm:text-7xl absolute -right-3 -bottom-3 transition-transform group-hover:scale-110"></i>
 
-      <div>
-        <div class="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-700 text-amber-300 flex items-center justify-center text-xs sm:text-base font-bold shadow mb-1.5 sm:mb-3">
-          <i class="fa-solid fa-calendar-alt"></i>
-        </div>
-        <h3 class="text-[11px] sm:text-base font-bold text-slate-900 group-hover:text-slate-700 transition leading-snug">Academic Calendar</h3>
-        <p class="hidden sm:block text-slate-600 text-xs mt-1.5 leading-relaxed">
-          Reopening dates, exams &amp; vacation timelines.
-        </p>
-      </div>
-
-      <div class="mt-1.5 sm:mt-3 pt-1.5 sm:pt-3 border-t border-slate-300 flex items-center justify-between text-[8px] sm:text-xs font-bold text-slate-700 group-hover:text-slate-900">
-        <span>VIEW DATES</span>
-        <i class="fa-solid fa-arrow-right text-[8px] sm:text-[10px] transition-transform group-hover:translate-x-1"></i>
-      </div>
-    </a>
 
     <!-- CARD 4: DISCIPLINARY REPORT (Light Red) -->
     <a href="{{route('student.disciplinary.index')}}" class="group bg-red-50 hover:bg-red-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-red-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
@@ -113,7 +95,7 @@
     </a>
 
     <!-- CARD 5: PERFORMANCE TRACKER (Light Blue) -->
-    <a href="#performance-tracker" class="group bg-blue-50 hover:bg-blue-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-blue-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
+    <a href="{{ route('student.performance.index') }}" class="group bg-blue-50 hover:bg-blue-100 text-slate-900 rounded-xl sm:rounded-2xl p-2.5 sm:p-5 shadow-sm hover:shadow-lg transition-all duration-300 border border-blue-200 flex flex-col justify-between relative overflow-hidden min-h-[104px] sm:min-h-[190px]">
       <i class="fa-solid fa-chart-line text-blue-900/10 text-5xl sm:text-7xl absolute -right-3 -bottom-3 transition-transform group-hover:scale-110"></i>
 
       <div>

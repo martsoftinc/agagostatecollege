@@ -208,11 +208,21 @@
 <!-- ============ HEADER / NAV ============ -->
 <header class="relative bg-forest overflow-hidden w-full">
   <nav class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between py-6 w-full">
-    <a href="{{ url('/') }}" class="flex items-center gap-3 text-white font-extrabold text-xl tracking-tightish whitespace-nowrap">
-      <span class="w-10 h-10 rounded-full bg-lime text-forest-deep flex items-center justify-center font-extrabold text-base shrink-0">ASC</span>
-      <span class="hidden xs:inline">Agogo State College</span>
-      <span class="xs:hidden">ASC</span>
-    </a>
+<a href="{{ url('/') }}" class="flex items-center gap-3 text-white font-extrabold text-xl tracking-tightish whitespace-nowrap">
+  
+  <!-- Logo -->
+  <span class="w-14 h-14 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden border-2 border-white">
+    <img 
+      src="{{ asset('images/logo.jpg') }}" 
+      alt="Agogo State College Logo"
+      class="w-full h-full object-contain"
+    >
+  </span>
+
+  <span class="hidden xs:inline">Agogo State College</span>
+  <span class="xs:hidden">Agogo State College</span>
+
+</a>
     <div class="flex items-center gap-3 sm:gap-4">
       <!-- Mobile Portal button (visible on mobile) -->
       <button id="portalBtnMobile" class="xl:hidden inline-flex items-center gap-1.5 bg-lime text-forest-deep font-semibold text-sm px-4 py-2 rounded-full hover:bg-lime-soft transition-colors shadow-sm">
@@ -268,8 +278,13 @@
     <button class="popup-close" id="closePopupBtn">✕</button>
     <h3>🔐 Portal Login</h3>
     <p>Choose your login type to access the portal.</p>
-    <button class="popup-btn primary" id="studentLoginBtn">👨‍🎓 Student Portal</button>
-    <button class="popup-btn secondary" id="teacherLoginBtn">👩‍🏫 Teacher / Admin Portal</button>
+      <a href="{{ route('student.login') }}" class="popup-btn primary">
+          👨‍🎓 Student Portal
+      </a>
+
+      <a href="{{ route('login') }}" class="popup-btn secondary">
+          👩‍🏫 Teacher / Admin Portal
+      </a>
     <button class="popup-btn secondary" style="background:transparent; color:#6B7280; font-size:0.85rem; margin-top:0.25rem;" id="closePopupBtn2">Cancel</button>
   </div>
 </div>

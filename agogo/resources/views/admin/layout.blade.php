@@ -132,17 +132,19 @@
 
       <!-- NAVIGATION LINKS -->
       <nav class="p-4 space-y-1">
-        <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('admin.dashboard') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
+        <a href="{{ route('admin.dashboard') }}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('admin.dashboard') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
           <i class="fa-solid fa-chart-pie w-5 text-center"></i>
           <span>Dashboard</span>
         </a>
 
-        <a href="#" class="flex items-center justify-between px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
-          <div class="flex items-center space-x-3">
-            <i class="fa-solid fa-user-plus w-5 text-center"></i>
-            <span>Admissions</span>
-          </div>
-          <span class="px-2 py-0.5 bg-asc-yellow text-asc-green-dark text-xs font-bold rounded-full">12</span>
+    
+
+        <a href="{{ route('admin.admissions.index') }}"
+          class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
+            {{ request()->routeIs('admin.admissions.index.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
+            text-sm transition">
+          <i class="fa-solid fa-user-plus w-5 text-center"></i>
+          <span>Admissions</span>
         </a>
 
         <a href="{{ route('admin.academic-setup.index') }}"
@@ -156,6 +158,14 @@
         <a href="{{route('admin.students.index')}}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
           <i class="fa-solid fa-user-graduate w-5 text-center"></i>
           <span>Student Directory</span>
+        </a>
+
+        <a href="{{ route('admin.performance.index') }}"
+          class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
+            {{ request()->routeIs('admin.performance.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
+            text-sm transition">
+          <i class="fa-solid fa-chart-line w-5 text-center"></i>
+          <span>Performance Tracker</span>
         </a>
 
         <a href="{{route('admin.classes.index')}}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">

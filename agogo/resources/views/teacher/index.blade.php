@@ -18,13 +18,13 @@
           Welcome, {{ $teacherName ?? 'Michael Asare' }}! 👋
         </h2>
         <p class="text-xs sm:text-sm text-slate-200 mt-1">
-          Here is what’s happening across your classes and schedule today.
+          <!--Here is what’s happening across your classes and schedule today. -->
         </p>
-      </div>
+      <!--</div>
       <div class="self-start sm:self-center bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 text-xs">
         <i class="fa-regular fa-calendar text-asc-yellow mr-1.5"></i>
         <span class="font-medium">Term 2, Week 6</span>
-      </div>
+      </div>-->
     </div>
   </section>
 
@@ -34,7 +34,7 @@
       <h3 class="text-lg font-bold text-slate-900 tracking-tight">Quick Actions & Tools</h3>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3 sm:gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-3 sm:gap-4">
       
       <!-- Tool 1: Continuous Assessment 
       <a href="#" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
@@ -44,24 +44,25 @@
         <span class="text-xs font-bold text-slate-800 group-hover:text-asc-green transition leading-tight">Continuous Assessment</span>
       </a>-->
 
+
       <!-- Tool 2: Terminal Report (NEW) -->
-      <a href="#" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
+      <a href="{{route('teacher.scores.index')}}" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
         <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 group-hover:bg-asc-green group-hover:text-asc-yellow transition flex items-center justify-center text-xl mb-3">
           <i class="fa-solid fa-file-invoice"></i>
         </div>
         <span class="text-xs font-bold text-slate-800 group-hover:text-asc-green transition leading-tight">Terminal Report</span>
       </a>
 
-      <!-- Tool 3: Attendance -->
-      <a href="#" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
+       <!--Tool 3: Attendance-->
+      <a href="{{ route('teacher.performance.index') }}" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
         <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 group-hover:bg-asc-yellow group-hover:text-asc-green-dark transition flex items-center justify-center text-xl mb-3">
           <i class="fa-solid fa-clipboard-user"></i>
         </div>
-        <span class="text-xs font-bold text-slate-800 group-hover:text-asc-green transition leading-tight">Attendance Register</span>
+        <span class="text-xs font-bold text-slate-800 group-hover:text-asc-green transition leading-tight">Performance Tracker</span>
       </a>
 
       <!-- Tool 4: Lesson Plan -->
-      <a href="#" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
+      <a href="{{route('lesson-plans.index')}}" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
         <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-asc-green group-hover:text-asc-yellow transition flex items-center justify-center text-xl mb-3">
           <i class="fa-solid fa-book-open"></i>
         </div>
@@ -69,23 +70,23 @@
       </a>
 
       <!-- Tool 5: Student Finder -->
-      <a href="" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
+      <a href="{{ route('teacher.student-finder') }}" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
         <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 group-hover:bg-asc-green group-hover:text-asc-yellow transition flex items-center justify-center text-xl mb-3">
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <span class="text-xs font-bold text-slate-800 group-hover:text-asc-green transition leading-tight">Student Finder</span>
       </a>
 
-      <!-- Tool 6: Academic Calendar -->
+      <!-- Tool 6: Academic Calendar 
       <a href="#" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
         <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 group-hover:bg-asc-yellow group-hover:text-asc-green-dark transition flex items-center justify-center text-xl mb-3">
           <i class="fa-solid fa-calendar-days"></i>
         </div>
         <span class="text-xs font-bold text-slate-800 group-hover:text-asc-green transition leading-tight">Academic Calendar</span>
-      </a>
+      </a>-->
 
       <!-- Tool 7: Profile -->
-      <a href="#" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
+      <a href="{{ route('teacher.profile') }}" class="group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-asc-green transition text-center flex flex-col items-center">
         <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-600 group-hover:bg-asc-green group-hover:text-white transition flex items-center justify-center text-xl mb-3">
           <i class="fa-solid fa-user-gear"></i>
         </div>

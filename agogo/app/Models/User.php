@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable
 {
@@ -88,6 +89,11 @@ class User extends Authenticatable
 
         // Optional default avatar
         return asset('images/default-avatar.png');
+    }
+
+    public function classStream(): BelongsTo
+    {
+        return $this->belongsTo(ClassStream::class, 'class_stream_id');
     }
 
     /* ── Name mutators: keep full_name in sync ── */

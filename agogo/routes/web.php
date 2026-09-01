@@ -30,9 +30,13 @@ use App\Http\Controllers\Student\DisciplinaryRecordController as StudentDiscipli
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Admin\AcademicSetupController;
 use App\Http\Controllers\Teacher\ScoreController;
-
-
-
+use App\Http\Controllers\TeacherProfileController;
+use App\Http\Controllers\Teacher\StudentFinderController;
+use App\Http\Controllers\Student\ReportController;
+use App\Http\Controllers\Student\PerformanceController;
+use App\Http\Controllers\Teacher\PerformanceController as TeacherPerformanceController;
+use App\Http\Controllers\Admin\PerformanceController as AdminPerformanceController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 
 Route::get('/', function () {
@@ -142,6 +146,21 @@ Route::get('teacher/scores', [ScoreController::class, 'index'])->name('teacher.s
 Route::get('teacher/scores/{classStream}/{subject}', [ScoreController::class, 'enter'])->name('teacher.scores.enter');
 Route::post('teacher/scores/{classStream}/{subject}', [ScoreController::class, 'store'])->name('teacher.scores.store');
 
+Route::get('/teacher/student-finder', [StudentFinderController::class, 'studentFinder'])->name('teacher.student-finder');
+
+
+
+Route::get('/teacher/profile', [TeacherProfileController::class, 'show'])->name('teacher.profile');
+Route::put('/teacher/profile', [TeacherProfileController::class, 'update'])->name('teacher.profile.update');
+Route::put('/teacher/profile/password', [TeacherProfileController::class, 'updatePassword'])->name('teacher.profile.password');
+Route::post('/teacher/profile/2fa', [TeacherProfileController::class, 'toggle2FA'])->name('teacher.profile.2fa');
+
+Route::prefix('teacher')->name('teacher.')->group(function () {
+
+Route::get('/performance', [TeacherPerformanceController::class, 'index'])->name('performance.index');
+});
+
+
 });
 
 
@@ -214,6 +233,16 @@ Route::get('student/exeats/{exeat}', [StudentExeatController::class, 'show'])->n
 
 Route::get('student/disciplinary', [StudentDisciplinaryRecordController::class, 'index'])->name('student.disciplinary.index');
 Route::get('student/disciplinary/{disciplinary}', [StudentDisciplinaryRecordController::class, 'show'])->name('student.disciplinary.show');
+
+
+Route::prefix('student')->name('student.')->middleware(['auth'])->group(function () {
+Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+Route::get('/reports/{semester}', [ReportController::class, 'show'])->name('reports.show');
+Route::get('/reports/{semester}/download', [ReportController::class, 'download'])->name('reports.download');
+Route::get('/performance', [PerformanceController::class, 'index'])->name('performance.index');
+});
+
+
 });
 
 
@@ -251,16 +280,16 @@ Route::post('/profile/2fa',     [ProfileController::class, 'toggle2FA'])->name('
 
 
 
-Route::get('admin/admissions', [AdmissionController::class, 'adminIndex'])->name('admissions.index');
-Route::get('admin/admissions/{id}', [AdmissionController::class, 'adminShow'])->name('admissions.show');
-Route::put('admin/admissions/{id}', [AdmissionController::class, 'adminUpdate'])->name('admissions.update');
-Route::delete('admin/admissions/{id}', [AdmissionController::class, 'adminDestroy'])->name('admissions.destroy');
-Route::get('admin/admissions/export/csv', [AdmissionController::class, 'adminExport'])->name('admissions.export');
-Route::post('admin/admissions/{id}/resend-payment', [AdmissionController::class, 'resendPaymentLink'])->name('admissions.resend-payment');
-Route::post('admin/admissions/{id}/send-sms', [AdmissionController::class, 'sendCustomSms'])->name('admissions.send-sms');
+Route::get('/admin/admissions', [AdmissionController::class, 'adminIndex'])->name('admin.admissions.index');
+Route::get('/admin/admissions/{id}', [AdmissionController::class, 'adminShow'])->name('admin.admissions.show');
+Route::put('/admin/admissions/{id}', [AdmissionController::class, 'adminUpdate'])->name('admin.admissions.update');
+Route::delete('/admin/admissions/{id}', [AdmissionController::class, 'adminDestroy'])->name('admin.admissions.destroy');
+Route::get('/admin/admissions/export/csv', [AdmissionController::class, 'adminExport'])->name('admin.admissions.export');
+Route::post('/admin/admissions/{id}/resend-payment', [AdmissionController::class, 'resendPaymentLink'])->name('admin.admissions.resend-payment');
+Route::post('/admin/admissions/{id}/send-sms', [AdmissionController::class, 'sendCustomSms'])->name('admin.admissions.send-sms');
     
     // Add this for AJAX SMS sending
-Route::post('admin/admissions/{id}/send-sms-ajax', [AdmissionController::class, 'sendCustomSmsAjax'])->name('admissions.send-sms-ajax');
+Route::post('admin/admissions/{id}/send-sms-ajax', [AdmissionController::class, 'sendCustomSmsAjax'])->name('admin.admissions.send-sms-ajax');
 
 
 // Classes & Streams Management
@@ -354,6 +383,9 @@ Route::patch('/academic-setup/semesters/{semester}/lock', [AcademicSetupControll
 Route::put('/academic-setup/weights', [AcademicSetupController::class, 'updateWeights'])->name('admin.academic-setup.update-weights');
 
 
+Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('admin/performance', [AdminPerformanceController::class, 'index'])->name('admin.performance.index');
+
 #});
 
 
@@ -366,4 +398,4 @@ Route::post('/two-factor-challenge/resend', [TwoFactorController::class, 'resend
 
 
 //Logout
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('admin.logout');

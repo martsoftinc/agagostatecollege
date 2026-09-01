@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Score;
 
 class Semester extends Model
 {
@@ -27,6 +29,11 @@ class Semester extends Model
     public function academicYear(): BelongsTo
     {
         return $this->belongsTo(AcademicYear::class);
+    }
+
+    public function scores(): HasMany
+    {
+        return $this->hasMany(Score::class);
     }
 
     // Helper: Get the current semester

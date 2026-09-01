@@ -1,199 +1,168 @@
-@extends('layouts.admin')
+@extends('admin.layout')
 
-@section('title', 'Admission Details - Admin Dashboard')
+@section('title', 'Admissions - Admin Dashboard')
 
 @section('content')
 <div class="px-4 sm:px-6 lg:px-8 py-8">
+    {{-- Header --}}
     <div class="sm:flex sm:items-center sm:justify-between">
         <div>
-            <h1 class="text-2xl font-semibold text-navy-900">Admission Details</h1>
-            <p class="mt-2 text-sm text-navy-700">Reference: {{ $admission->payment_reference }}</p>
+            <h1 class="text-2xl font-semibold text-navy-900">Admissions</h1>
+            <p class="mt-1 text-sm text-navy-700">Manage all admission applications</p>
         </div>
-        <div class="mt-4 sm:mt-0">
-            <a href="{{ route('admin.admissions.index') }}" class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-                Back to List
+        <div class="mt-4 sm:mt-0 flex gap-3">
+            <a href="{{ route('admin.admissions.export') }}"
+               class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
+                Export CSV
             </a>
         </div>
     </div>
 
-    <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <!-- Main Content -->
-        <div class="lg:col-span-2 space-y-8">
-            <!-- Personal Information -->
-            <div class="overflow-hidden rounded-lg bg-white shadow">
-                <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
-                    <h3 class="text-lg font-medium text-gray-900">Personal Information</h3>
-                </div>
-                <div class="px-6 py-4">
-                    <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Full Name</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->full_name }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Date of Birth</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->date_of_birth->format('F d, Y') }}</dd>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <dt class="text-sm font-medium text-gray-500">Address</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->address }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Place of Residence</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->place_of_residence }}</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-
-            <!-- Parent/Guardian Information -->
-            <div class="overflow-hidden rounded-lg bg-white shadow">
-                <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
-                    <h3 class="text-lg font-medium text-gray-900">Parent/Guardian Information</h3>
-                </div>
-                <div class="px-6 py-4">
-                    <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Name</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->parent_guardian_name }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Telephone</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->parent_guardian_phone }}</dd>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <dt class="text-sm font-medium text-gray-500">Occupation</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->parent_guardian_occupation }}</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-
-            <!-- Previous School Information -->
-            <div class="overflow-hidden rounded-lg bg-white shadow">
-                <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
-                    <h3 class="text-lg font-medium text-gray-900">Previous School Information</h3>
-                </div>
-                <div class="px-6 py-4">
-                    <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">School Name</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->previous_school }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Index Number</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->index_number }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Position Held</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->position_held ?? 'N/A' }}</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-
-            <!-- Additional Information -->
-            <div class="overflow-hidden rounded-lg bg-white shadow">
-                <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
-                    <h3 class="text-lg font-medium text-gray-900">Additional Information</h3>
-                </div>
-                <div class="px-6 py-4">
-                    <dl class="grid grid-cols-1 gap-4">
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Interests/Hobbies</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->interests_hobbies ?? 'None specified' }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Medical Conditions</dt>
-                            <dd class="mt-1 text-sm text-gray-900">{{ $admission->medical_conditions ?? 'None specified' }}</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
+    {{-- Stats --}}
+    <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+        <div class="rounded-lg bg-white p-4 shadow">
+            <p class="text-sm font-medium text-gray-500">Total</p>
+            <p class="mt-1 text-2xl font-semibold text-navy-900">{{ $stats['total'] }}</p>
         </div>
+        <div class="rounded-lg bg-white p-4 shadow">
+            <p class="text-sm font-medium text-gray-500">Paid</p>
+            <p class="mt-1 text-2xl font-semibold text-green-600">{{ $stats['paid'] }}</p>
+        </div>
+        <div class="rounded-lg bg-white p-4 shadow">
+            <p class="text-sm font-medium text-gray-500">Pending Payment</p>
+            <p class="mt-1 text-2xl font-semibold text-yellow-600">{{ $stats['pending_payment'] }}</p>
+        </div>
+        <div class="rounded-lg bg-white p-4 shadow">
+            <p class="text-sm font-medium text-gray-500">Failed</p>
+            <p class="mt-1 text-2xl font-semibold text-red-600">{{ $stats['failed_payment'] }}</p>
+        </div>
+        <div class="rounded-lg bg-white p-4 shadow">
+            <p class="text-sm font-medium text-gray-500">Reviewed</p>
+            <p class="mt-1 text-2xl font-semibold text-blue-600">{{ $stats['reviewed'] }}</p>
+        </div>
+        <div class="rounded-lg bg-white p-4 shadow">
+            <p class="text-sm font-medium text-gray-500">Accepted</p>
+            <p class="mt-1 text-2xl font-semibold text-green-700">{{ $stats['accepted'] }}</p>
+        </div>
+        <div class="rounded-lg bg-white p-4 shadow">
+            <p class="text-sm font-medium text-gray-500">Rejected</p>
+            <p class="mt-1 text-2xl font-semibold text-red-700">{{ $stats['rejected'] }}</p>
+        </div>
+    </div>
 
-        <!-- Sidebar -->
-        <div class="space-y-8">
-            <!-- Status Update -->
-            <div class="overflow-hidden rounded-lg bg-white shadow">
-                <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
-                    <h3 class="text-lg font-medium text-gray-900">Application Status</h3>
-                </div>
-                <div class="px-6 py-4">
-                    <form action="{{ route('admin.admissions.update', $admission->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <div>
-                            <label for="status" class="block text-sm font-medium text-gray-700">Update Status</label>
-                            <select name="status" id="status" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gold focus:ring-gold">
-                                <option value="pending" {{ $admission->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                <option value="reviewed" {{ $admission->status == 'reviewed' ? 'selected' : '' }}>Reviewed</option>
-                                <option value="accepted" {{ $admission->status == 'accepted' ? 'selected' : '' }}>Accepted</option>
-                                <option value="rejected" {{ $admission->status == 'rejected' ? 'selected' : '' }}>Rejected</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="mt-4 w-full rounded-md bg-gold px-4 py-2 text-sm font-medium text-navy-900 hover:bg-gold/80">
-                            Update Status
-                        </button>
-                    </form>
-                </div>
+    {{-- Filters --}}
+    <div class="mt-6 rounded-lg bg-white p-4 shadow">
+        <form method="GET" action="{{ route('admin.admissions.index') }}" class="grid grid-cols-1 gap-4 sm:grid-cols-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Search</label>
+                <input type="text" name="search" value="{{ request('search') }}"
+                       placeholder="Name, index, guardian..."
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gold focus:ring-gold">
             </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Payment Status</label>
+                <select name="payment_status" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gold focus:ring-gold">
+                    <option value="all" {{ request('payment_status') == 'all' ? 'selected' : '' }}>All</option>
+                    <option value="paid" {{ request('payment_status') == 'paid' ? 'selected' : '' }}>Paid</option>
+                    <option value="pending" {{ request('payment_status') == 'pending' ? 'selected' : '' }}>Pending</option>
+                    <option value="failed" {{ request('payment_status') == 'failed' ? 'selected' : '' }}>Failed</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Application Status</label>
+                <select name="status" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gold focus:ring-gold">
+                    <option value="all" {{ request('status') == 'all' ? 'selected' : '' }}>All</option>
+                    <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
+                    <option value="reviewed" {{ request('status') == 'reviewed' ? 'selected' : '' }}>Reviewed</option>
+                    <option value="accepted" {{ request('status') == 'accepted' ? 'selected' : '' }}>Accepted</option>
+                    <option value="rejected" {{ request('status') == 'rejected' ? 'selected' : '' }}>Rejected</option>
+                </select>
+            </div>
+            <div class="flex items-end gap-2">
+                <button type="submit" class="w-full rounded-md bg-gold px-4 py-2 text-sm font-medium text-navy-900 hover:bg-gold/80">
+                    Filter
+                </button>
+                <a href="{{ route('admin.admissions.index') }}"
+                   class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    Reset
+                </a>
+            </div>
+        </form>
+    </div>
 
-            <!-- Payment Information -->
-            <div class="overflow-hidden rounded-lg bg-white shadow">
-                <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
-                    <h3 class="text-lg font-medium text-gray-900">Payment Information</h3>
-                </div>
-                <div class="px-6 py-4">
-                    <dl class="space-y-2">
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Amount</dt>
-                            <dd class="text-sm text-gray-900">GH₵ {{ number_format($admission->amount_paid, 2) }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Reference</dt>
-                            <dd class="text-sm text-gray-900">{{ $admission->payment_reference }}</dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Status</dt>
-                            <dd>
-                                @if($admission->payment_status == 'paid')
+    {{-- Table --}}
+    <div class="mt-6 overflow-hidden rounded-lg bg-white shadow">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">Applicant</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">Reference</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">Previous School</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">Payment</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">Status</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">Applied</th>
+                        <th class="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider text-gray-500">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white">
+                    @forelse($admissions as $admission)
+                        <tr class="hover:bg-gray-50">
+                            <td class="whitespace-nowrap px-6 py-4">
+                                <div class="text-sm font-medium text-gray-900">{{ $admission->full_name }}</div>
+                                <div class="text-sm text-gray-500">{{ $admission->parent_guardian_phone }}</div>
+                            </td>
+                            <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
+                                {{ $admission->payment_reference }}
+                            </td>
+                            <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
+                                {{ $admission->previous_school }}
+                            </td>
+                            <td class="whitespace-nowrap px-6 py-4">
+                                @if($admission->payment_status === 'paid')
                                     <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Paid</span>
-                                @elseif($admission->payment_status == 'pending')
+                                @elseif($admission->payment_status === 'pending')
                                     <span class="inline-flex rounded-full bg-yellow-100 px-2 text-xs font-semibold leading-5 text-yellow-800">Pending</span>
                                 @else
                                     <span class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">Failed</span>
                                 @endif
-                            </dd>
-                        </div>
-                        <div>
-                            <dt class="text-sm font-medium text-gray-500">Applied On</dt>
-                            <dd class="text-sm text-gray-900">{{ $admission->created_at->format('F d, Y H:i A') }}</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="overflow-hidden rounded-lg bg-white shadow">
-                <div class="border-b border-gray-200 bg-gray-50 px-6 py-4">
-                    <h3 class="text-lg font-medium text-gray-900">Actions</h3>
-                </div>
-                <div class="px-6 py-4 space-y-2">
-                    <form action="{{ route('admin.admissions.destroy', $admission->id) }}" method="POST" 
-                          onsubmit="return confirm('Are you sure you want to delete this admission record?');">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="w-full rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700">
-                            Delete Record
-                        </button>
-                    </form>
-                    <button onclick="window.print()" class="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
-                        Print Details
-                    </button>
-                </div>
-            </div>
+                            </td>
+                            <td class="whitespace-nowrap px-6 py-4">
+                                @if($admission->status === 'accepted')
+                                    <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Accepted</span>
+                                @elseif($admission->status === 'rejected')
+                                    <span class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">Rejected</span>
+                                @elseif($admission->status === 'reviewed')
+                                    <span class="inline-flex rounded-full bg-blue-100 px-2 text-xs font-semibold leading-5 text-blue-800">Reviewed</span>
+                                @else
+                                    <span class="inline-flex rounded-full bg-gray-100 px-2 text-xs font-semibold leading-5 text-gray-800">Pending</span>
+                                @endif
+                            </td>
+                            <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                                {{ $admission->created_at->format('d M Y') }}
+                            </td>
+                            <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                                <a href="{{ route('admin.admissions.show', $admission->id) }}"
+                                   class="text-gold hover:text-gold/80">View</a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="px-6 py-10 text-center text-sm text-gray-500">
+                                No admissions found.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
+
+        {{-- Pagination --}}
+        @if($admissions->hasPages())
+            <div class="border-t border-gray-200 bg-white px-4 py-3">
+                {{ $admissions->withQueryString()->links() }}
+            </div>
+        @endif
     </div>
 </div>
 @endsection

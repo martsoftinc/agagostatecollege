@@ -44,16 +44,29 @@
     
     <div>
       <!-- BRANDING & LOGO HEADER -->
-      <div class="p-5 border-b border-asc-green-light/30 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-full bg-asc-green text-asc-yellow border-2 border-asc-yellow flex items-center justify-center font-extrabold text-sm shadow">
-            ASC
-          </div>
-          <div>
-            <h1 class="font-extrabold text-sm tracking-wider uppercase text-white leading-tight">Agogo State</h1>
-            <p class="text-[10px] text-asc-yellow tracking-widest font-semibold uppercase">College Portal</p>
-          </div>
+<div class="p-5 border-b border-asc-green-light/30 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+
+        <!-- Logo -->
+        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-asc-yellow shadow bg-white flex-shrink-0">
+            <img src="{{ asset('images/logo.jpg') }}"
+                 alt="Agogo State College Logo"
+                 class="w-full h-full object-cover">
         </div>
+
+        <div>
+            <h1 class="font-extrabold text-sm tracking-wider uppercase text-white leading-tight">
+                Agogo State
+            </h1>
+            <p class="text-[10px] text-asc-yellow tracking-widest font-semibold uppercase">
+                College Teachers Portal
+            </p>
+        </div>
+
+    </div>
+
+    
+
         <!-- Close button for mobile -->
         <button onclick="toggleSidebar()" class="lg:hidden text-slate-300 hover:text-white p-1">
           <i class="fa-solid fa-xmark text-lg"></i>
@@ -62,35 +75,35 @@
 
       <!-- NAVIGATION LINKS -->
       <nav class="p-4 space-y-1">
-        <a href="" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('teacher.dashboard') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
+        <a href="{{ route('teacher') }}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('teacher') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
           <i class="fa-solid fa-house w-5 text-center"></i>
           <span>Dashboard</span>
         </a>
 
-        <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
-          <i class="fa-solid fa-pen-to-square w-5 text-center"></i>
-          <span>Assessment</span>
-        </a>
+        <a href="{{ route('teacher.scores.index') }}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('teacher.scores.index') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
+                <i class="fa-solid fa-house w-5 text-center"></i>
+                <span>Terminal Report</span>
+          </a>
 
-        <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
+         <!--
+        <a href="{{ route('teacher.student-finder') }}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
           <i class="fa-solid fa-clipboard-user w-5 text-center"></i>
           <span>Attendance</span>
         </a>
-
-        <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
-          <i class="fa-solid fa-book-open w-5 text-center"></i>
-          <span>Lesson Plan</span>
+        -->
+        
+        <a href="{{ route('lesson-plans.index') }}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('lesson-plans.index') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
+          <i class="fa-solid fa-house w-5 text-center"></i>
+          <span>Lesson Plans</span>
         </a>
 
-        <a href="" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('student.finder') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
-          <i class="fa-solid fa-magnifying-glass w-5 text-center"></i>
-          <span>Student Finder</span>
-        </a>
+      <a href="{{ route('teacher.student-finder') }}" 
+        class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('teacher.student-finder') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
+        <i class="fa-solid fa-magnifying-glass w-5 text-center"></i>
+        <span>Student Finder</span>
+      </a>
 
-        <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
-          <i class="fa-solid fa-calendar-days w-5 text-center"></i>
-          <span>Calendar</span>
-        </a>
+      
 
         <a href="{{ route('teacher.notices.index') }}"
         class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
@@ -100,8 +113,8 @@
         <span>Announcements</span>
       </a>
 
-        <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
-          <i class="fa-solid fa-user-gear w-5 text-center"></i>
+        <a href="{{ route('teacher.profile') }}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('teacher.profile') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
+          <i class="fa-solid fa-house w-5 text-center"></i>
           <span>Profile</span>
         </a>
       </nav>
@@ -109,7 +122,7 @@
 
     <!-- LOGOUT FORM / BUTTON -->
     <div class="p-4 border-t border-asc-green-light/30">
-      <form method="POST" action="">
+      <form method="POST" action="{{ route('admin.logout')}}">
         @csrf
         <button type="submit" class="w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-rose-300 hover:bg-rose-900/30 font-semibold text-sm transition">
           <i class="fa-solid fa-right-from-bracket w-5 text-center"></i>

@@ -37,10 +37,17 @@
         <span>1. Basic Information</span>
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">School Name</label>
-          <input type="text" name="school_name" value="{{ old('school_name', 'Agogo State College') }}" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-asc-green focus:outline-none">
-        </div>
+      <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+              School Name
+          </label>
+
+          <input type="text"
+                name="school_name"
+                value="Agogo State College"
+                readonly
+                class="w-full rounded-xl border border-slate-300 bg-slate-100 px-3.5 py-2 text-sm text-slate-500 cursor-not-allowed">
+      </div>
         <div>
           <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Subject *</label>
           <input type="text" name="subject" value="{{ old('subject') }}" required placeholder="e.g. Integrated Science" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-asc-green focus:outline-none">
