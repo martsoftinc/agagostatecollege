@@ -254,38 +254,69 @@
   </div>
 </section>
 
-<!-- ============ LATEST NEWS & EVENTS ============ -->
-<section class="bg-white py-16 sm:py-24 w-full">
+{{-- ============ LATEST BLOG / NEWS ============ --}}
+<section class="py-16 sm:py-20 bg-ivory">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-    <div class="flex flex-wrap items-end justify-between gap-4 sm:gap-6">
-      <h2 class="font-extrabold text-2xl sm:text-4xl tracking-tightish">Latest news &amp; events</h2>
-      <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-forest hover:gap-2 transition-all">View all <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+
+    {{-- Header --}}
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-12">
+      <div>
+        <p class="text-sm font-semibold text-forest uppercase tracking-wider mb-2">Stay Updated</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-ink tracking-tightish">
+          Latest News & Events
+        </h2>
+      </div>
+      <a href="{{ route('blog.index') }}"
+         class="inline-flex items-center gap-2 text-forest font-semibold hover:text-forest-deep transition-colors group">
+        View all posts
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+      </a>
     </div>
-    <div class="mt-10 sm:mt-12 grid md:grid-cols-3 gap-6 sm:gap-8">
-      <article class="bg-white border border-gray-100 rounded-3xl overflow-hidden card-hover">
-        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80" alt="Graduation ceremony" class="w-full h-48 object-cover">
-        <div class="p-5 sm:p-6">
-          <span class="text-xs font-semibold text-forest bg-lime/30 px-3 py-1 rounded-full">Event</span>
-          <h3 class="mt-3 font-semibold text-lg leading-snug">65th Speech &amp; Prize-Giving Day set for October</h3>
-          <p class="mt-2 text-sm text-muted leading-relaxed">Parents and alumni are invited to celebrate another year of academic achievement on campus.</p>
+
+    {{-- Posts Grid --}}
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      @forelse($latestPosts as $post)
+        <a href="{{ route('blog.show', $post->slug) }}" class="group block">
+          <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-hover h-full flex flex-col">
+            {{-- Featured Image --}}
+            <div class="relative overflow-hidden">
+              @if($post->featured_image)
+                <img src="{{ $post->featured_image_url }}"
+                     alt="{{ $post->title }}"
+                     class="card-img group-hover:scale-105 transition-transform duration-500">
+              @else
+                <div class="card-img bg-forest/10 flex items-center justify-center">
+                  <i data-lucide="newspaper" class="w-12 h-12 text-forest/30"></i>
+                </div>
+              @endif
+              <div class="absolute top-3 left-3">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-lime text-forest-deep">
+                  {{ $post->published_at?->format('d M Y') }}
+                </span>
+              </div>
+            </div>
+
+            {{-- Content --}}
+            <div class="p-5 sm:p-6 flex flex-col flex-1">
+              <h3 class="text-lg font-bold text-ink leading-snug group-hover:text-forest transition-colors line-clamp-2">
+                {{ $post->title }}
+              </h3>
+              <p class="mt-2 text-sm text-muted line-clamp-3 flex-1">
+                {{ $post->excerpt ?? Str::limit(strip_tags($post->body), 120) }}
+              </p>
+              <div class="mt-4 flex items-center gap-2 text-sm font-semibold text-forest">
+                Read more
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </article>
+        </a>
+      @empty
+        <div class="col-span-full text-center py-16 text-muted">
+          <i data-lucide="newspaper" class="w-12 h-12 mx-auto mb-3 opacity-40"></i>
+          <p class="font-medium">No news posts yet.</p>
         </div>
-      </article>
-      <article class="bg-white border border-gray-100 rounded-3xl overflow-hidden card-hover">
-        <img src="https://images.unsplash.com/photo-1596496181848-3091d4878b24?auto=format&fit=crop&w=500&q=80" alt="Students in science competition" class="w-full h-48 object-cover">
-        <div class="p-5 sm:p-6">
-          <span class="text-xs font-semibold text-forest bg-lime/30 px-3 py-1 rounded-full">News</span>
-          <h3 class="mt-3 font-semibold text-lg leading-snug">Science club wins regional STEM challenge</h3>
-          <p class="mt-2 text-sm text-muted leading-relaxed">Our General Science students placed first in the Ashanti Region inter-schools STEM competition.</p>
-        </div>
-      </article>
-      <article class="bg-white border border-gray-100 rounded-3xl overflow-hidden card-hover">
-        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=500&q=80" alt="School sports day" class="w-full h-48 object-cover">
-        <div class="p-5 sm:p-6">
-          <span class="text-xs font-semibold text-forest bg-lime/30 px-3 py-1 rounded-full">Event</span>
-          <h3 class="mt-3 font-semibold text-lg leading-snug">Inter-house sports competition kicks off</h3>
-          <p class="mt-2 text-sm text-muted leading-relaxed">The four houses compete for the championship trophy this term on the main sports field.</p>
-        </div>
-      </article>
+      @endforelse
     </div>
   </div>
 </section>

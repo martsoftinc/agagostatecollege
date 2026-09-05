@@ -37,17 +37,25 @@ use App\Http\Controllers\Student\PerformanceController;
 use App\Http\Controllers\Teacher\PerformanceController as TeacherPerformanceController;
 use App\Http\Controllers\Admin\PerformanceController as AdminPerformanceController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomePageController;
 
 
 
 
 
+
+
+
+
+Route::get('/', [HomePageController::class, 'index'])->name('welcomepage');
+
+
+
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::view('/pta', 'pta')->name('pta');
 Route::view('/contact', 'pages/contact')->name('contact');
@@ -385,6 +393,15 @@ Route::put('/academic-setup/weights', [AcademicSetupController::class, 'updateWe
 
 Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 Route::get('admin/performance', [AdminPerformanceController::class, 'index'])->name('admin.performance.index');
+
+Route::resource('admin/posts', PostController::class)
+    ->except(['show'])
+    ->names('admin.posts');
+
+Route::post('admin/posts/upload-image', [PostController::class, 'uploadImage'])
+         ->name('admin.posts.upload-image');
+
+
 
 #});
 

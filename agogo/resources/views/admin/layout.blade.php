@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title', 'Agogo State College - Admin Portal')</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
 @media print {
@@ -222,6 +223,14 @@
         <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
           <i class="fa-solid fa-calendar-days w-5 text-center"></i>
           <span>Academic Calendar</span>
+        </a>
+
+        <a href="{{ route('admin.posts.index') }}"
+          class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
+            {{ request()->routeIs('admin.posts.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
+            text-sm transition">
+          <i class="fa-solid fa-newspaper w-5 text-center"></i>
+          <span>Blog / News</span>
         </a>
 
         <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
