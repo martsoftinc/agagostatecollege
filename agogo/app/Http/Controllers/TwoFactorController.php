@@ -92,7 +92,7 @@ class TwoFactorController extends Controller
          // ── No 2FA — log straight in ────────────────────────────────────────
     Auth::login($user, $request->boolean('remember'));
 
-    // ── Role-based redirection (preserved from your original function) ──
+    // ── Role-based redirection (preserved from your original function) ──housemaster.dashboard
     $userRole = $user->role;
 
     switch ($userRole) {
@@ -101,6 +101,9 @@ class TwoFactorController extends Controller
             break;
         case 'user':
             return redirect()->route('dashboard');
+            break;
+        case 'HouseMaster':
+            return redirect()->route('housemaster.dashboard');
             break;
         case 'teacher':
             return redirect()->route('teacher');

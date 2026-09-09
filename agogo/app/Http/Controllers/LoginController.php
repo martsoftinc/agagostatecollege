@@ -116,7 +116,7 @@ class LoginController extends Controller
     // ── No 2FA — log straight in ────────────────────────────────────────
     Auth::login($user, $request->boolean('remember'));
 
-    // ── Role-based redirection (preserved from your original function) ──
+    // ── Role-based redirection (preserved from your original function) ── dashboard
     $userRole = $user->role;
 
     switch ($userRole) {
@@ -126,7 +126,9 @@ class LoginController extends Controller
         case 'user':
             return redirect()->route('dashboard');
             break;
-
+        case 'HouseMaster':
+            return redirect()->route('housemaster.dashboard');
+            break;
         case 'teacher':
             return redirect()->route('teacher');
             break;

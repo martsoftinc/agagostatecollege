@@ -62,6 +62,31 @@ class AuthServiceProvider extends ServiceProvider
             );
         });
 
+
+             // Register the PTA guard
+        Auth::extend('PTA', function ($app, $name, array $config) {
+            return new \App\Guards\ModeratorGuard(
+                Auth::createUserProvider($config['provider']),
+                $app->make('request')
+            );
+        });
+
+             // Register the DC guard
+        Auth::extend('DC', function ($app, $name, array $config) {
+            return new \App\Guards\ModeratorGuard(
+                Auth::createUserProvider($config['provider']),
+                $app->make('request')
+            );
+        });
+
+             // Register the user guard
+        Auth::extend('HouseMaster', function ($app, $name, array $config) {
+            return new \App\Guards\ModeratorGuard(
+                Auth::createUserProvider($config['provider']),
+                $app->make('request')
+            );
+        });
+
         
 
         

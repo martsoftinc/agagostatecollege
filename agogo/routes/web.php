@@ -40,8 +40,11 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomePageController;
-
-
+use App\Http\Controllers\Pta\ChairmanController;
+use App\Http\Controllers\HouseMaster\DashboardController as HouseMasterDashboardController;
+use App\Http\Controllers\HouseMaster\DisciplinaryController as HouseMasterDisciplinaryController;
+use App\Http\Controllers\HouseMaster\ExeatController as HouseMasterExeatController;
+use App\Models\PtaMeeting;
 
 
 
@@ -57,7 +60,13 @@ Route::get('/', [HomePageController::class, 'index'])->name('welcomepage');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
-Route::view('/pta', 'pta')->name('pta');
+
+Route::get('/pta', function () {
+    $meeting = PtaMeeting::first();
+    return view('pta', compact('meeting'));
+})->name('pta');
+
+
 Route::view('/contact', 'pages/contact')->name('contact');
 Route::view('/programmes', 'pages/programmes')->name('programmes');
 Route::view('/about', 'pages/about')->name('about');
@@ -416,3 +425,38 @@ Route::post('/two-factor-challenge/resend', [TwoFactorController::class, 'resend
 
 //Logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+
+
+#Route::middleware(['auth','PTA'])->prefix('pta')->name('pta.')->group(function () {
+Route::prefix('pta')
+    ->name('pta.')
+    ->group(function () {
+    // Protect with role middleware if you have one
+    // ->middleware('role:pta_chairman')
+
+    Route::get('/dashboard', [ChairmanController::class, 'dashboard'])
+        ->name('dashboard');
+
+    Route::post('/meeting', [ChairmanController::class, 'updateMeeting'])
+        ->name('meeting.update');
+
+    Route::post('/sms/bulk', [ChairmanController::class, 'sendBulkSms'])
+        ->name('sms.bulk');
+});
+
+
+Route::middleware(['auth','HouseMaster'])->prefix('housemaster')->name('housemaster.')->group(function () {
+
+    Route::get('/dashboard', [HouseMasterDashboardController::class, 'index'])->name('dashboard');
+
+    // Disciplinary
+    Route::get('/disciplinary', [HouseMasterDisciplinaryController::class, 'index'])->name('disciplinary.index');
+    Route::get('/disciplinary/create', [HouseMasterDisciplinaryController::class, 'create'])->name('disciplinary.create');
+    Route::post('/disciplinary', [HouseMasterDisciplinaryController::class, 'store'])->name('disciplinary.store');
+
+    // Exeat
+    Route::get('/exeat', [HouseMasterExeatController::class, 'index'])->name('exeat.index');
+    Route::get('/exeat/create', [HouseMasterExeatController::class, 'create'])->name('exeat.create');
+    Route::post('/exeat', [HouseMasterExeatController::class, 'store'])->name('exeat.store');
+    Route::post('/exeat/{exeat}/return', [HouseMasterExeatController::class, 'markReturned'])->name('exeat.return');
+});
