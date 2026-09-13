@@ -117,6 +117,130 @@
     </div>
   </section>
 
+  {{-- 4. PROGRAMME + HOUSE BREAKDOWN --}}
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+
+  <!-- Programme Breakdown -->
+  <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <div class="p-5 border-b border-slate-100 bg-slate-50/50">
+      <h3 class="font-bold text-slate-900 text-base">Programme Breakdown</h3>
+      <p class="text-xs text-slate-500">Students by academic programme</p>
+    </div>
+    <div class="p-5 space-y-3">
+      @forelse($programmeBreakdown as $prog)
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-semibold text-slate-700">{{ $prog['name'] }}</span>
+          <div class="flex items-center gap-3">
+            <div class="w-32 bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div class="h-full bg-asc-green rounded-full"
+                   style="width: {{ $totalEnrolled > 0 ? min(round(($prog['total'] / $totalEnrolled) * 100), 100) : 0 }}%">
+              </div>
+            </div>
+            <span class="text-sm font-bold text-slate-900 w-10 text-right">{{ $prog['total'] }}</span>
+          </div>
+        </div>
+      @empty
+        <p class="text-sm text-slate-400 text-center py-4">No programme data available.</p>
+      @endforelse
+    </div>
+  </div>
+
+  <!-- House Breakdown -->
+  <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <div class="p-5 border-b border-slate-100 bg-slate-50/50">
+      <h3 class="font-bold text-slate-900 text-base">House Breakdown</h3>
+      <p class="text-xs text-slate-500">Students by residential house</p>
+    </div>
+    <div class="p-5 space-y-3">
+      @forelse($houseBreakdown as $house)
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-semibold text-slate-700">{{ $house['name'] }}</span>
+          <div class="flex items-center gap-3">
+            <div class="w-32 bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div class="h-full bg-asc-yellow rounded-full"
+                   style="width: {{ $totalEnrolled > 0 ? min(round(($house['total'] / $totalEnrolled) * 100), 100) : 0 }}%">
+              </div>
+            </div>
+            <span class="text-sm font-bold text-slate-900 w-10 text-right">{{ $house['total'] }}</span>
+          </div>
+        </div>
+      @empty
+        <p class="text-sm text-slate-400 text-center py-4">No house data available.</p>
+      @endforelse
+    </div>
+  </div>
+</section>
+
+{{-- 5. BOARDING vs DAY GENDER + HOUSE BY GENDER --}}
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+
+  <!-- Boarding vs Day – Gender Breakdown -->
+  <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <div class="p-5 border-b border-slate-100 bg-slate-50/50">
+      <h3 class="font-bold text-slate-900 text-base">Boarding vs Day – Gender</h3>
+      <p class="text-xs text-slate-500">Gender distribution by residential status</p>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="bg-slate-50 text-[11px] uppercase font-bold text-slate-500 tracking-wider">
+            <th class="py-3 px-5">Status</th>
+            <th class="py-3 px-5 text-center text-blue-600">Male</th>
+            <th class="py-3 px-5 text-center text-pink-600">Female</th>
+            <th class="py-3 px-5 text-right">Total</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          @foreach($boardingGenderStats as $status => $genders)
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3.5 px-5 font-semibold text-slate-800">{{ $status }}</td>
+              <td class="py-3.5 px-5 text-center font-bold text-blue-600">{{ $genders['Male'] ?? 0 }}</td>
+              <td class="py-3.5 px-5 text-center font-bold text-pink-600">{{ $genders['Female'] ?? 0 }}</td>
+              <td class="py-3.5 px-5 text-right font-bold text-slate-900">
+                {{ ($genders['Male'] ?? 0) + ($genders['Female'] ?? 0) }}
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- House Breakdown by Gender -->
+  <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <div class="p-5 border-b border-slate-100 bg-slate-50/50">
+      <h3 class="font-bold text-slate-900 text-base">House Breakdown by Gender</h3>
+      <p class="text-xs text-slate-500">Male / Female distribution per house</p>
+    </div>
+    <div class="overflow-x-auto max-h-80">
+      <table class="w-full text-left text-sm">
+        <thead class="sticky top-0">
+          <tr class="bg-slate-50 text-[11px] uppercase font-bold text-slate-500 tracking-wider">
+            <th class="py-3 px-5">House</th>
+            <th class="py-3 px-5 text-center text-blue-600">Male</th>
+            <th class="py-3 px-5 text-center text-pink-600">Female</th>
+            <th class="py-3 px-5 text-right">Total</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          @forelse($houseGenderStats as $house => $data)
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3 px-5 font-semibold text-slate-800">{{ $house }}</td>
+              <td class="py-3 px-5 text-center font-bold text-blue-600">{{ $data['Male'] ?? 0 }}</td>
+              <td class="py-3 px-5 text-center font-bold text-pink-600">{{ $data['Female'] ?? 0 }}</td>
+              <td class="py-3 px-5 text-right font-bold text-slate-900">{{ $data['total'] }}</td>
+            </tr>
+          @empty
+            <tr>
+              <td colspan="4" class="py-8 text-center text-slate-400">No house data available.</td>
+            </tr>
+          @endforelse
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
   <!-- 3. CLASS POPULATION BREAKDOWN -->
   <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden mt-6">
     <div class="p-5 border-b border-slate-100 bg-slate-50/50">

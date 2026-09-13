@@ -40,7 +40,7 @@
         <div class="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-emerald-700 text-white flex items-center justify-center text-xs sm:text-base font-bold shadow mb-1.5 sm:mb-3">
           <i class="fa-solid fa-graduation-cap"></i>
         </div>
-        <h3 class="text-[11px] sm:text-base font-bold text-slate-900 group-hover:text-emerald-800 transition leading-snug">Check Terminal Report</h3>
+        <h3 class="text-[11px] sm:text-base font-bold text-slate-900 group-hover:text-emerald-800 transition leading-snug">Check Semester Report</h3>
         <p class="hidden sm:block text-emerald-800/80 text-xs mt-1.5 leading-relaxed">
           CA marks, term scores, class position &amp; result slips.
         </p>

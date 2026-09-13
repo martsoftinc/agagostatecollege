@@ -78,7 +78,7 @@
         </span>
         <h3 class="mt-5 font-bold text-xl text-ink">Our Mission</h3>
         <p class="mt-3 text-muted text-sm sm:text-base leading-relaxed">
-          To provide quality, values-driven secondary education that develops disciplined, innovative and God-fearing citizens ready to serve Ghana and the world.
+          We provide dedicated teaching, sound religious and moral instructions to develop the potentials of the students.
         </p>
       </article>
       <article class="bg-white rounded-3xl p-7 sm:p-9 card-hover border border-gray-100">
@@ -87,7 +87,7 @@
         </span>
         <h3 class="mt-5 font-bold text-xl text-ink">Our Vision</h3>
         <p class="mt-3 text-muted text-sm sm:text-base leading-relaxed">
-          To be a leading centre of academic and moral excellence in Ghana — a school where character and learning grow together.
+          Creating Agogo State College as a centre of academic excellence, moral rectitude and social discipline.
         </p>
       </article>
     </div>
@@ -171,9 +171,9 @@
     <div class="grid lg:grid-cols-2 gap-10 sm:gap-16 items-start">
       <div>
         <img
-          src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/468908155_18035816873366738_6237712593345399938_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHJJROcPjEMh5zNnthfPFxGIkuBnV50IpMiS4GdXnQik7036zV0-RmHPACIkypC7eaGHfKZEeRJ0eeCQ6tknKkx&_nc_ohc=eUu_fg16V9YQ7kNvwGjgOcS&_nc_oc=Adpn-umZOq7Qc_gJqBQmWka21S8EUKaaSDfIYdikS3KsCWppVECkEPmp-XhsHBONEV8&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=WVcwkJXUJ9QJphtxXrEBlQ&_nc_ss=7b2a8&oh=00_AQKgxzDmt1shbF2ga3gVUJgQFcEPO5N7KBDHX_eYiPgQDg&oe=6A9C6BE0"
-          alt="Mrs. Comfort Asante-Boateng, Headmistress of Agogo State College"
-          class="w-full h-64 sm:h-[400px] lg:h-[480px] object-cover rounded-[2rem]"
+          src="{{ asset('images/leaders/matilda.jpeg') }}"
+          alt="Matilda Gyamera, Headmistress of Agogo State College"
+          class="w-full h-64 sm:h-[400px] lg:h-[480px] object-contain rounded-[2rem]"
           loading="lazy"
         >
       </div>
@@ -185,7 +185,7 @@
           Meet our Headmistress
         </h2>
         <p class="mt-2 font-semibold text-forest text-base sm:text-lg">
-          Mrs. Comfort Asante-Boateng
+          Mrs. Matilda Gyamera
         </p>
         <p class="text-sm text-muted">Headmistress, Agogo State College</p>
         <p class="mt-5 sm:mt-6 text-muted leading-relaxed text-sm sm:text-base">

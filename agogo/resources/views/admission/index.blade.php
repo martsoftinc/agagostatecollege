@@ -177,7 +177,6 @@
             <option value="general_arts" {{ old('programme') === 'general_arts' ? 'selected' : '' }}>General Arts</option>
             <option value="visual_arts" {{ old('programme') === 'visual_arts' ? 'selected' : '' }}>Visual Arts</option>
             <option value="home_economics" {{ old('programme') === 'home_economics' ? 'selected' : '' }}>Home Economics</option>
-            <option value="agricultural_science" {{ old('programme') === 'agricultural_science' ? 'selected' : '' }}>Agricultural Science</option>
           </select>
           @error('programme')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror
         </div>

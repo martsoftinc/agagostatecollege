@@ -92,7 +92,7 @@
         </a>
         -->
         
-        <a href="{{ route('lesson-plans.index') }}" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('lesson-plans.index') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
+        <a href="/documents" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl {{ request()->routeIs('lesson-plans.index') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }} text-sm transition">
           <i class="fa-solid fa-house w-5 text-center"></i>
           <span>Lesson Plans</span>
         </a>

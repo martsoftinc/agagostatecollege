@@ -195,6 +195,14 @@
           <span>Lesson Plans</span>
         </a>
 
+        <a href="{{ route('admin.rankings.index') }}"
+          class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
+            {{ request()->routeIs('admin.rankings.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
+            text-sm transition">
+          <i class="fa-solid fa-ranking-star w-5 text-center"></i>
+          <span>Class Rankings</span>
+        </a>
+
         <a href="{{ route('admin.notices.index') }}"
         class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
           {{ request()->routeIs('admin.notices.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
@@ -233,10 +241,13 @@
           <span>Blog / News</span>
         </a>
 
-        <a href="#" class="flex items-center space-x-3 px-3.5 py-3 rounded-xl text-slate-200 hover:bg-asc-green hover:text-white font-medium text-sm transition">
-          <i class="fa-solid fa-sliders w-5 text-center"></i>
-          <span>System Settings</span>
-        </a>
+      <a href="{{ route('admin.settings.index') }}"
+        class="flex items-center space-x-3 px-3.5 py-3 rounded-xl
+          {{ request()->routeIs('admin.settings.*') ? 'bg-asc-green text-asc-yellow font-bold' : 'text-slate-200 hover:bg-asc-green hover:text-white font-medium' }}
+          text-sm transition">
+        <i class="fa-solid fa-sliders w-5 text-center"></i>
+        <span>Settings</span>
+      </a>
       </nav>
     </div>
 

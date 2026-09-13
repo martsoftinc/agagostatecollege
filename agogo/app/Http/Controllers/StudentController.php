@@ -50,7 +50,7 @@ class StudentController extends Controller
             'General Arts',
             'Visual Arts',
             'Home Economics',
-            'Agricultural Science',
+            //'Agricultural Science',
         ];
         $classStreams = \App\Models\ClassStream::with(['schoolClass', 'stream'])
             ->where('is_active', true)

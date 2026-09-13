@@ -330,7 +330,7 @@
         <li>Call us directly:</li>
         <li class="text-white font-medium">+233 24 400 0000</li>
         <li>Need support?</li>
-        <li class="text-white font-medium break-all">info@agogostatecollege.edu.gh</li>
+        <li class="text-white font-medium break-all">info@agogostatecollege.com</li>
       </ul>
     </div>
   </div>

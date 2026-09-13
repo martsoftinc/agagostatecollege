@@ -80,6 +80,92 @@ class DashboardController extends Controller
                 ];
             });
 
+            // ===== PROGRAMME BREAKDOWN =====
+$programmeBreakdown = User::where('role', 'student')
+    ->where('status', 'Active')
+    ->select('programme', DB::raw('count(*) as total'))
+    ->groupBy('programme')
+    ->orderByDesc('total')
+    ->get()
+    ->map(function ($item) {
+        return [
+            'name'  => $item->programme ?: 'Not Set',
+            'total' => $item->total,
+        ];
+    });
+
+// ===== HOUSE BREAKDOWN =====
+$houseBreakdown = User::where('role', 'student')
+    ->where('status', 'Active')
+    ->select('house', DB::raw('count(*) as total'))
+    ->groupBy('house')
+    ->orderByDesc('total')
+    ->get()
+    ->map(function ($item) {
+        return [
+            'name'  => $item->house ?: 'Not Set',
+            'total' => $item->total,
+        ];
+    });
+
+    // ===== BOARDING vs DAY + GENDER BREAKDOWN =====
+    $boardingGender = User::where('role', 'student')
+        ->where('status', 'Active')
+        ->select(
+            'boarding',
+            'gender',
+            DB::raw('count(*) as total')
+        )
+        ->groupBy('boarding', 'gender')
+        ->get();
+
+    $boardingGenderStats = [
+        'Boarding' => ['Male' => 0, 'Female' => 0],
+        'Day'      => ['Male' => 0, 'Female' => 0],
+    ];
+
+    foreach ($boardingGender as $row) {
+        $boardingKey = ucfirst(strtolower($row->boarding ?? 'Day')); // normalize
+        $genderKey   = ucfirst(strtolower($row->gender ?? 'Male'));
+
+        if (!isset($boardingGenderStats[$boardingKey])) {
+            $boardingGenderStats[$boardingKey] = ['Male' => 0, 'Female' => 0];
+        }
+        if (!isset($boardingGenderStats[$boardingKey][$genderKey])) {
+            $boardingGenderStats[$boardingKey][$genderKey] = 0;
+        }
+
+        $boardingGenderStats[$boardingKey][$genderKey] += $row->total;
+    }
+
+    // ===== HOUSE BREAKDOWN BY GENDER =====
+    $houseGender = User::where('role', 'student')
+        ->where('status', 'Active')
+        ->select(
+            'house',
+            'gender',
+            DB::raw('count(*) as total')
+        )
+        ->groupBy('house', 'gender')
+        ->get();
+
+    $houseGenderStats = [];
+
+    foreach ($houseGender as $row) {
+        $houseName = $row->house ?: 'Not Set';
+        $genderKey = ucfirst(strtolower($row->gender ?? 'Male'));
+
+        if (!isset($houseGenderStats[$houseName])) {
+            $houseGenderStats[$houseName] = ['Male' => 0, 'Female' => 0, 'total' => 0];
+        }
+
+        $houseGenderStats[$houseName][$genderKey] += $row->total;
+        $houseGenderStats[$houseName]['total'] += $row->total;
+    }
+
+    // Sort houses by total students (descending)
+    uasort($houseGenderStats, fn($a, $b) => $b['total'] <=> $a['total']);
+
         return view('admin.dashboard', compact(
             'totalEnrolled',
             'pendingAdmissions',
@@ -90,7 +176,11 @@ class DashboardController extends Controller
             'otherGender',
             'boardingStudents',
             'dayStudents',
-            'classBreakdown'
+            'classBreakdown',
+            'programmeBreakdown',      // new
+            'houseBreakdown',          // new
+            'boardingGenderStats',     // new
+            'houseGenderStats'         // new
         ));
     }
 }

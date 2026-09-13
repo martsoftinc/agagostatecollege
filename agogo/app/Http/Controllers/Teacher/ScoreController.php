@@ -37,6 +37,10 @@ class ScoreController extends Controller
         return view('teacher.scores.index', compact('classStreams', 'currentSemester'));
     }
 
+
+
+
+
     /**
      * Show score entry form for a specific class + subject + semester
      */
@@ -44,6 +48,7 @@ class ScoreController extends Controller
     {
         $teacherId = Auth::id();
 
+         
         // Security: Make sure this teacher actually teaches this subject in this class
         $isAssigned = $classStream->subjects()
             ->where('subject_id', $subject->id)
@@ -52,7 +57,7 @@ class ScoreController extends Controller
 
         if (!$isAssigned) {
             abort(403, 'You are not assigned to teach this subject in this class.');
-        }
+        } 
 
         $currentSemester = Semester::current();
 
@@ -91,9 +96,92 @@ class ScoreController extends Controller
         ));
     }
 
-    /**
-     * Save scores
-     */
+    public function store(Request $request, ClassStream $classStream, Subject $subject)
+{
+    $teacherId = Auth::id();
+    $currentSemester = Semester::current();
+
+    // Security check again
+    $isAssigned = $classStream->subjects()
+        ->where('subject_id', $subject->id)
+        ->wherePivot('teacher_id', $teacherId)
+        ->exists();
+
+    if (!$isAssigned || !$currentSemester || $currentSemester->is_locked) {
+        abort(403);
+    }
+
+    $scoresData = $request->input('scores', []);
+
+    // Optional: basic validation
+    $request->validate([
+        'scores.*.midsem'     => 'nullable|numeric|min:0|max:40',
+        'scores.*.exam'       => 'nullable|numeric|min:0|max:60',
+        'scores.*.attendance' => 'nullable|numeric|min:0|max:100',
+        'scores.*.comment'    => 'nullable|string|max:255',
+    ]);
+
+    DB::transaction(function () use ($scoresData, $classStream, $subject, $currentSemester) {
+        foreach ($scoresData as $studentId => $data) {
+
+            $midsem     = $data['midsem'] ?? null;
+            $exam       = $data['exam'] ?? null;
+            $comment    = $data['comment'] ?? null;
+            $attendance = $data['attendance'] ?? null;
+
+            // Keep classwork if you still want to store it (optional)
+            $classwork  = $data['classwork'] ?? null;
+
+            $total = null;
+            $grade = null;
+            $point = null;
+
+            // Only calculate when at least one of Mid-Sem or Exam is entered
+            if ($midsem !== null || $exam !== null) {
+                $ms = (float) ($midsem ?? 0);
+                $ex = (float) ($exam ?? 0);
+
+                // Simple addition (Mid out of 40 + Exam out of 60)
+                $total = $ms + $ex;
+
+                // Cap at 100
+                if ($total > 100) {
+                    $total = 100;
+                }
+
+                $total = round($total, 2);
+
+                $gradeInfo = \App\Helpers\GradeHelper::calculate($total);
+                $grade = $gradeInfo['grade'];
+                $point = $gradeInfo['point'];
+            }
+
+            Score::updateOrCreate(
+                [
+                    'student_id'  => $studentId,
+                    'subject_id'  => $subject->id,
+                    'semester_id' => $currentSemester->id,
+                ],
+                [
+                    'class_stream_id'  => $classStream->id,
+                    'classwork_score'  => $classwork,   // still saved if present
+                    'midsem_score'     => $midsem,
+                    'exam_score'       => $exam,
+                    'total_score'      => $total,
+                    'grade'            => $grade,
+                    'grade_point'      => $point,
+                    'teacher_comment'  => $comment,
+                    'attendance'       => $attendance,
+                ]
+            );
+        }
+    });
+
+    return redirect()->back()->with('success', 'Scores saved successfully!');
+}
+
+    /*
+     
     public function store(Request $request, ClassStream $classStream, Subject $subject)
     {
         $teacherId = Auth::id();
@@ -169,5 +257,5 @@ class ScoreController extends Controller
         });
 
         return redirect()->back()->with('success', 'Scores saved successfully!');
-    }
+    } */
 }

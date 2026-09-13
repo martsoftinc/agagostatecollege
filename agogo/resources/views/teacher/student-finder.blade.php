@@ -172,7 +172,7 @@
                 </div>
               </div>
 
-              <!-- Guardian -->
+              <!-- Guardian 
               <div class="pt-2 border-t border-slate-100">
                 <span class="text-slate-400 font-medium text-xs block mb-1">Guardian</span>
                 <div class="flex items-center justify-between gap-2">
@@ -187,7 +187,7 @@
                     </a>
                   @endif
                 </div>
-              </div>
+              </div>-->
             </div>
           </div>
         @endforeach

@@ -262,5 +262,10 @@ public static function generateNextStudentId(): string
 
     return $prefix . str_pad($nextSequence, 4, '0', STR_PAD_LEFT);
 }
+
+public function documents()
+{
+    return $this->hasMany(Document::class);
+}
     
 }

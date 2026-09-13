@@ -9,7 +9,7 @@
 
       <!-- Slide 1 -->
       <div class="slide active absolute inset-0" data-slide="0">
-        <img src="images/1.jfif" alt="Students walking on campus" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy">
+        <img src="{{ asset('images/banner/2.jpg') }}" alt="Students walking on campus" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -23,7 +23,7 @@
 
       <!-- Slide 2 -->
       <div class="slide absolute inset-0" data-slide="1">
-        <img src="https://scontent.facc1-1.fna.fbcdn.net/v/t51.75761-15/473634167_18040519970366738_7529715757283291203_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x960&ctp=s1280x960&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ELmsFkAoIsAQ7kNvwG6YOaW&_nc_oc=Ado1ondby1YxYobLZFFNNiC0f3KjwLLH581__jnhI8a1o8wSQdGPxPjzNvvo7aK8JiM&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=0EovmNs7nRz7A42_iS5u5g&_nc_ss=7b289&oh=00_AQKDZlVg0svZW1OGXcOBETH8NFXMCDPbbPXk4aJHivC4xA&oe=6A9C64CA" alt="Students in a classroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <img src="{{ asset('images/banner/3.jpg') }}" alt="Students in a classroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -37,7 +37,7 @@
 
       <!-- Slide 3 -->
       <div class="slide absolute inset-0" data-slide="2">
-        <img src="https://scontent.facc6-1.fna.fbcdn.net/v/t51.75761-15/479648539_18043461386366738_1330013205500627779_n.jpg?stp=dst-jpg_tt6&cstp=mx1170x864&ctp=s1170x864&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFxtl8tFaspWi1m9amPCIAt9rNYFn-EVt72s1gWf4RW3oJ0X27i4SW1d94mxzRAAcB99lLNYu9Ry2wYljxs4Ien&_nc_ohc=syDus5E-dsgQ7kNvwHjmNIi&_nc_oc=AdrJ25-jEZAhm8M9btJwexkp6EfG5zTAj5S7Ld5uQ0AdBthDI582UMgH6RLQp48wXAY&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=TGdntMAN6FlbYa2Z2VifNQ&_nc_ss=7b2a8&oh=00_AQI0_bh7-8tEvmjJSJVMnN7hesc9GDKc57sVjgu74fjrBw&oe=6A9C829E" alt="Science laboratory session" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <img src="{{ asset('images/banner/1.jpg') }}" alt="Science laboratory session" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -51,7 +51,7 @@
 
       <!-- Slide 4 -->
       <div class="slide absolute inset-0" data-slide="3">
-        <img src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/484087865_964116379252963_1898646267755036964_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFZtrpdCNB18a-TiycXkOQA40-sYDruhn7jT6xgOu6GfjFmm-1Z8gqm6DJ863hw9Ar86bgDbTXTmgtHmQxIYFEh&_nc_ohc=kZnEb9N5GdwQ7kNvwGcHPAr&_nc_oc=AdobYyioBFpeZ6SmHSyxYU8-uOmuAL5ueo7H1L-WrpKzz670gCUlNCfs6WW_K5XL1A4&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=jYFr-y2FBVdnuHqHWh1tuA&_nc_ss=7b2a8&oh=00_AQKtyUvmme56osITFRGBchajYowC8Q4RqoGBDTfvJBF_JA&oe=6A9C56C7" alt="Students playing sports on the field" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <img src="{{ asset('images/banner/4.jpg') }}" alt="Students playing sports on the field" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -65,7 +65,7 @@
 
       <!-- Slide 5 -->
       <div class="slide absolute inset-0" data-slide="4">
-        <img src="https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468833342_18035816819366738_3933003337504937330_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEwosTrP3Wpkx5G-sd9y4ZA8dW4bQvvab_x1bhtC-9pv4eKP3gd1I3bvpPkQu6sdb716aLiqnWyrWrRS_PoYCd-&_nc_ohc=VuXOeHJufIoQ7kNvwEhoksc&_nc_oc=AdqyCOS3eGgmsFSuh6hi9XtVrraH1SO3Yz2FHsWvO8I6FObxxfXejqacRtILPERCeuo&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=A5R5fm-AVbbOBuz8o4AAWg&_nc_ss=7b2a8&oh=00_AQIrq85YyQ8VaHs-8SLvwox64yocTcgz_Q0fh9nhFPQHqw&oe=6A9C5557" alt="Graduating students celebrating" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <img src="{{ asset('images/banner/5.jpg') }}" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-tr from-forest-deep/90 via-forest-deep/40 to-transparent"></div>
         <div class="relative z-10 h-full flex items-end px-4 sm:px-6 lg:px-16 pb-10 sm:pb-16">
           <div class="max-w-xl">
@@ -98,7 +98,7 @@
 <!-- ============ HEADMISTRESS' WELCOME ============ -->
 <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 sm:gap-16 items-start">
   <div>
-    <img src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/468908155_18035816873366738_6237712593345399938_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHJJROcPjEMh5zNnthfPFxGIkuBnV50IpMiS4GdXnQik7036zV0-RmHPACIkypC7eaGHfKZEeRJ0eeCQ6tknKkx&_nc_ohc=eUu_fg16V9YQ7kNvwGjgOcS&_nc_oc=Adpn-umZOq7Qc_gJqBQmWka21S8EUKaaSDfIYdikS3KsCWppVECkEPmp-XhsHBONEV8&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=WVcwkJXUJ9QJphtxXrEBlQ&_nc_ss=7b2a8&oh=00_AQKgxzDmt1shbF2ga3gVUJgQFcEPO5N7KBDHX_eYiPgQDg&oe=6A9C6BE0" alt="Headmistress of Agogo State College" class="w-full h-64 sm:h-[400px] lg:h-[480px] object-cover rounded-[2rem]">
+    <img src="{{ asset('images/leaders/matilda.jpeg') }}" alt="Headmistress of Agogo State College" class="w-full h-64 sm:h-[400px] lg:h-[480px] object-contain rounded-[2rem]">
     <a href="#" class="mt-5 inline-flex items-center justify-center gap-2 bg-forest text-white font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded-full hover:bg-forest-deep transition-colors text-sm sm:text-base">Profile of our Headmistress <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
   </div>
   <div>
@@ -106,7 +106,7 @@
     <h2 class="mt-4 font-extrabold text-2xl sm:text-4xl tracking-tightish leading-tight">A warm welcome to the Agogo State College family.</h2>
     <p class="mt-4 sm:mt-5 text-muted leading-relaxed text-sm sm:text-base">On behalf of the staff, students and management of Agogo State College, I welcome you to our school community. For over six decades, we have nurtured young people into disciplined, confident and knowledgeable citizens ready to serve Ghana and the world.</p>
     <p class="mt-3 sm:mt-4 text-muted leading-relaxed text-sm sm:text-base">Our doors are open to every learner who is willing to work hard, respect others, and pursue excellence. I invite you to explore our programmes, meet our staff, and consider Agogo State College as the place where your child's future begins.</p>
-    <p class="mt-5 sm:mt-6 font-semibold text-ink">Mrs. Comfort Asante-Boateng</p>
+    <p class="mt-5 sm:mt-6 font-semibold text-ink">Mrs. Matilda Gyamera</p>
     <p class="text-sm text-muted">Headmistress, Agogo State College</p>
   </div>
 </section>
@@ -138,17 +138,17 @@
         <span class="w-11 h-11 rounded-xl bg-lime/30 text-forest flex items-center justify-center"><i data-lucide="landmark" class="w-5 h-5"></i></span>
         <h3 class="mt-5 font-bold text-lg sm:text-xl">Our History</h3>
         <p class="mt-2 text-muted text-sm leading-relaxed flex-1">Founded in 1958, Agogo State College began as a small day school and has grown into one of the Ashanti Region's most respected boarding institutions, shaping generations of leaders, professionals and change-makers.</p>
-        <a href="#" class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-forest hover:gap-2 transition-all w-fit">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        <a href="/about" class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-forest hover:gap-2 transition-all w-fit">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </article>
       <article class="bg-white rounded-3xl p-6 sm:p-7 card-hover flex flex-col">
         <span class="w-11 h-11 rounded-xl bg-lime/30 text-forest flex items-center justify-center"><i data-lucide="target" class="w-5 h-5"></i></span>
         <h3 class="mt-5 font-bold text-lg sm:text-xl">Our Mission &amp; Vision</h3>
-        <p class="mt-2 text-muted text-sm leading-relaxed flex-1"><span class="font-semibold text-ink">Mission:</span> To provide quality, values-driven secondary education that develops disciplined, innovative and God-fearing citizens.<br class="hidden sm:block"><br class="hidden sm:block"><span class="font-semibold text-ink">Vision:</span> To be a leading centre of academic and moral excellence in Ghana.</p>
-        <a href="#" class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-forest hover:gap-2 transition-all w-fit">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        <p class="mt-2 text-muted text-sm leading-relaxed flex-1"><span class="font-semibold text-ink">Mission:</span> We provide dedicated teaching, sound religious and moral instructions to develop the potentials of the students.<br class="hidden sm:block"><br class="hidden sm:block"><span class="font-semibold text-ink">Vision:</span> Creating Agogo State College as a centre of academic excellence, moral rectitude and social discipline.</p>
+        <a href="/about" class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-forest hover:gap-2 transition-all w-fit">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </article>
       <article class="bg-white rounded-3xl p-4 sm:p-4 card-hover flex flex-col">
         <div class="relative rounded-2xl overflow-hidden video-wrapper">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="A video tour of Agogo State College campus" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="{{asset('videos/intro.mp4')}}" title="A video tour of Agogo State College campus" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="p-2 sm:p-3">
           <h3 class="font-bold text-lg sm:text-xl">Campus Video Tour</h3>
@@ -194,15 +194,16 @@
       <h3 class="mt-5 font-bold text-lg">Home Economics</h3>
       <p class="mt-2 text-muted text-sm leading-relaxed">Food &amp; Nutrition, Management in Living, and Clothing &amp; Textiles.</p>
     </article>
+    <!--
     <article class="bg-white border border-gray-100 rounded-3xl p-6 sm:p-7 card-hover">
       <span class="w-11 h-11 rounded-xl bg-lime/30 text-forest flex items-center justify-center"><i data-lucide="sprout" class="w-5 h-5"></i></span>
       <h3 class="mt-5 font-bold text-lg">Agricultural Science</h3>
       <p class="mt-2 text-muted text-sm leading-relaxed">General Agriculture, Animal Husbandry and Crop Science for future agribusiness leaders.</p>
-    </article>
+    </article>-->
   </div>
 </section>
 
-<!-- ============ ACADEMIC CALENDAR ============ -->
+<!-- ============ ACADEMIC CALENDAR ============ 
 <section id="calendar" class="bg-ivory py-16 sm:py-24 w-full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
     <div class="text-center max-w-2xl mx-auto">
@@ -252,7 +253,7 @@
       <a href="#" class="inline-flex items-center gap-2 text-forest font-semibold hover:gap-3 transition-all text-sm">Download full calendar (PDF) <i data-lucide="download" class="w-4 h-4"></i></a>
     </div>
   </div>
-</section>
+</section>-->
 
 {{-- ============ LATEST BLOG / NEWS ============ --}}
 <section class="py-16 sm:py-20 bg-ivory">
@@ -321,7 +322,7 @@
   </div>
 </section>
 
-<!-- ============ DEPARTMENT HEADS ============ -->
+<!-- ============ DEPARTMENT HEADS ============ 
 <section id="leadership" class="bg-ivory py-16 sm:py-24 w-full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
     <div class="text-center max-w-2xl mx-auto">
@@ -340,9 +341,9 @@
       <div class="text-center"><img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=300&q=80" alt="Head of Guidance and Counselling" class="w-full h-40 sm:h-52 object-cover rounded-2xl"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mrs. Grace Appiah</h3><p class="text-xs sm:text-sm text-muted">Head, Guidance &amp; Counselling</p></div>
     </div>
   </div>
-</section>
+</section>-->
 
-<!-- ============ PTA EXECUTIVES ============ -->
+<!-- ============ PTA EXECUTIVES ============ 
 <section id="pta" class="bg-white py-16 sm:py-24 w-full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
     <div class="text-center max-w-2xl mx-auto">
@@ -357,10 +358,10 @@
       <!--<div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80" alt="PTA Treasurer" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mrs. Patricia Adjei</h3><p class="text-xs sm:text-sm text-muted">Treasurer</p></div>
       <div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80" alt="PTA Financial Secretary" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mr. Isaac Gyamfi</h3><p class="text-xs sm:text-sm text-muted">Financial Secretary</p></div>
       <div class="bg-ivory rounded-3xl p-5 sm:p-6 text-center card-hover"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" alt="PTA Public Relations Officer" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full mx-auto"><h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base">Mrs. Joyce Amankwah</h3><p class="text-xs sm:text-sm text-muted">Public Relations Officer</p></div>
-          -->
+          
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- ============ CONNECT WITH US ============ -->
 <section id="connect" class="bg-ivory py-16 sm:py-24 w-full">

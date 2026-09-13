@@ -38,12 +38,14 @@ use App\Http\Controllers\Teacher\PerformanceController as TeacherPerformanceCont
 use App\Http\Controllers\Admin\PerformanceController as AdminPerformanceController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SettingController as AdminSettingController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\Pta\ChairmanController;
 use App\Http\Controllers\HouseMaster\DashboardController as HouseMasterDashboardController;
 use App\Http\Controllers\HouseMaster\DisciplinaryController as HouseMasterDisciplinaryController;
 use App\Http\Controllers\HouseMaster\ExeatController as HouseMasterExeatController;
+use App\Http\Controllers\DocumentController;
 use App\Models\PtaMeeting;
 
 
@@ -177,6 +179,11 @@ Route::prefix('teacher')->name('teacher.')->group(function () {
 Route::get('/performance', [TeacherPerformanceController::class, 'index'])->name('performance.index');
 });
 
+Route::resource('documents', DocumentController::class);
+    Route::get('documents/{document}/download', [DocumentController::class, 'download'])
+        ->name('documents.download');
+    Route::post('documents/{document}/share', [DocumentController::class, 'share'])
+        ->name('documents.share');
 
 });
 
@@ -252,11 +259,17 @@ Route::get('student/disciplinary', [StudentDisciplinaryRecordController::class, 
 Route::get('student/disciplinary/{disciplinary}', [StudentDisciplinaryRecordController::class, 'show'])->name('student.disciplinary.show');
 
 
+// Payment routes
+Route::post('/reports/{semester}/pay', [ReportController::class, 'pay'])->name('student.reports.pay');
+Route::get('/reports/payment/callback', [ReportController::class, 'callback'])->name('student.reports.callback');
+
+
 Route::prefix('student')->name('student.')->middleware(['auth'])->group(function () {
 Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
 Route::get('/reports/{semester}', [ReportController::class, 'show'])->name('reports.show');
 Route::get('/reports/{semester}/download', [ReportController::class, 'download'])->name('reports.download');
 Route::get('/performance', [PerformanceController::class, 'index'])->name('performance.index');
+
 });
 
 
@@ -411,6 +424,13 @@ Route::post('admin/posts/upload-image', [PostController::class, 'uploadImage'])
          ->name('admin.posts.upload-image');
 
 
+Route::get('/settings', [AdminSettingController::class, 'index'])->name('admin.settings.index');
+
+Route::put('/settings', [AdminSettingController::class, 'update'])->name('admin.settings.update');     
+
+Route::get('/rankings', [App\Http\Controllers\Admin\RankingController::class, 'index'])->name('admin.rankings.index');
+
+Route::get('/rankings/export', [App\Http\Controllers\Admin\RankingController::class, 'export'])->name('admin.rankings.export');
 
 #});
 

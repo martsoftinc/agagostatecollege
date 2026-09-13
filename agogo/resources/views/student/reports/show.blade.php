@@ -69,7 +69,7 @@
           <thead>
             <tr class="bg-slate-800 text-white">
               <th class="py-3 px-4 text-left font-bold">Subject</th>
-              <th class="py-3 px-3 text-center font-bold">Classwork</th>
+              <!--<th class="py-3 px-3 text-center font-bold">Classwork</th>-->
               <th class="py-3 px-3 text-center font-bold">Mid-Sem</th>
               <th class="py-3 px-3 text-center font-bold">Exam</th>
               <th class="py-3 px-3 text-center font-bold">Total %</th>
@@ -82,7 +82,7 @@
             @forelse($scores as $score)
               <tr class="hover:bg-slate-50">
                 <td class="py-3 px-4 font-semibold text-slate-800">{{ $score->subject->name }}</td>
-                <td class="py-3 px-3 text-center">{{ $score->classwork_score ?? '—' }}</td>
+                <!--<td class="py-3 px-3 text-center">{{ $score->classwork_score ?? '—' }}</td> -->
                 <td class="py-3 px-3 text-center">{{ $score->midsem_score ?? '—' }}</td>
                 <td class="py-3 px-3 text-center">{{ $score->exam_score ?? '—' }}</td>
                 <td class="py-3 px-3 text-center font-bold">{{ $score->total_score ?? '—' }}</td>

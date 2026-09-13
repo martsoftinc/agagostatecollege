@@ -1,4 +1,3 @@
-
 @extends('layout')
 
 @section('title', 'Leadership — Agogo State College')
@@ -24,9 +23,9 @@
   <div class="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
     <div>
       <img
-        src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/468908155_18035816873366738_6237712593345399938_n.jpg?stp=dst-jpg_tt6&cstp=mx1440x960&ctp=s1440x960&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHJJROcPjEMh5zNnthfPFxGIkuBnV50IpMiS4GdXnQik7036zV0-RmHPACIkypC7eaGHfKZEeRJ0eeCQ6tknKkx&_nc_ohc=eUu_fg16V9YQ7kNvwGjgOcS&_nc_oc=Adpn-umZOq7Qc_gJqBQmWka21S8EUKaaSDfIYdikS3KsCWppVECkEPmp-XhsHBONEV8&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=WVcwkJXUJ9QJphtxXrEBlQ&_nc_ss=7b2a8&oh=00_AQKgxzDmt1shbF2ga3gVUJgQFcEPO5N7KBDHX_eYiPgQDg&oe=6A9C6BE0"
-        alt="Mrs. Comfort Asante-Boateng, Headmistress of Agogo State College"
-        class="w-full h-64 sm:h-[420px] lg:h-[480px] object-cover rounded-[2rem]"
+        src="{{ asset('images/leaders/matilda.jpeg') }}"
+        alt="Mrs. Matilda Gyamera, Headmistress of Agogo State College"
+        class="w-full h-64 sm:h-[420px] lg:h-[480px] object-contain rounded-[2rem]"
         loading="lazy"
       >
     </div>
@@ -35,11 +34,11 @@
         <span class="w-6 h-px bg-forest"></span> Head of school
       </p>
       <h2 class="mt-4 font-extrabold text-2xl sm:text-4xl tracking-tightish leading-tight text-ink">
-        Mrs. Comfort Asante-Boateng
+        Mrs. Matilda Gyamera
       </h2>
       <p class="mt-2 font-semibold text-forest text-base sm:text-lg">Headmistress</p>
       <p class="mt-5 text-muted leading-relaxed text-sm sm:text-base">
-        Mrs. Asante-Boateng leads Agogo State College with a focus on academic excellence, discipline and the welfare of every student. She oversees teaching, boarding life and partnership with parents through the PTA.
+        Mrs. Matilda Gyamera leads Agogo State College with a focus on academic excellence, discipline and the welfare of every student. She oversees teaching, boarding life and partnership with parents through the PTA.
       </p>
       <p class="mt-3 text-muted leading-relaxed text-sm sm:text-base">
         Under her leadership the school continues to prepare young people for WASSCE and for service to Ghana and the world.
@@ -52,63 +51,133 @@
   </div>
 </section>
 
-<!-- ============ DEPARTMENT HEADS ============ -->
+<!-- ============ HEADMASTERS ============ -->
 <section class="bg-ivory py-14 sm:py-20 w-full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
     <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
       <p class="text-sm font-semibold text-forest flex items-center justify-center gap-2">
-        <span class="w-6 h-px bg-forest"></span> Academics
+        <span class="w-6 h-px bg-forest"></span> Senior Leadership
       </p>
       <h2 class="mt-3 sm:mt-4 font-extrabold text-2xl sm:text-4xl tracking-tightish text-ink">
-        Heads of department
+        Headmasters
       </h2>
       <p class="mt-3 sm:mt-4 text-muted text-sm sm:text-base leading-relaxed">
-        The academic leaders guiding each department toward excellence.
+        Supporting the Headmistress in the day-to-day running of the school.
       </p>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
-      <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
-        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" alt="Head of Academic Affairs" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
-        <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. Kwame Owusu</h3>
-        <p class="text-xs sm:text-sm text-muted">Head of Academic Affairs</p>
+    <div class="grid md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto">
+      <!-- Headmaster 1 -->
+      <div class="bg-white rounded-3xl border border-gray-100 p-6 sm:p-8 card-hover flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
+        <img
+          src="{{ asset('images/leaders/default.png') }}"
+          alt="Mr. Kwesi Mensah"
+          class="w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-2xl shrink-0"
+          loading="lazy"
+        >
+        <div>
+          <h3 class="font-extrabold text-xl sm:text-2xl text-ink">Mr. William Berko </h3>
+          <p class="mt-1 font-semibold text-forest">Assistant headmaster, administration </p>
+          <p class="mt-3 text-muted text-sm sm:text-base leading-relaxed">
+            Responsible for student discipline, boarding affairs and general administration. Works closely with House Masters to maintain a safe and orderly campus.
+          </p>
+        </div>
       </div>
-      <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Head of General Science" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
-        <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mrs. Abena Frimpong</h3>
-        <p class="text-xs sm:text-sm text-muted">Head, General Science</p>
+
+      <!-- Headmaster 2 -->
+      <div class="bg-white rounded-3xl border border-gray-100 p-6 sm:p-8 card-hover flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
+        <img
+          src="{{ asset('images/leaders/default.png') }}"
+          alt="Mr. Isaac Osei"
+          class="w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-2xl shrink-0"
+          loading="lazy"
+        >
+        <div>
+          <h3 class="font-extrabold text-xl sm:text-2xl text-ink">Mr. Nicholas Marfo Budu</h3>
+          <p class="mt-1 font-semibold text-forest">Assistant headmaster, academic </p>
+          <p class="mt-3 text-muted text-sm sm:text-base leading-relaxed">
+            Oversees academic coordination and staff welfare. Supports the Headmistress in curriculum delivery and teacher development programmes.
+          </p>
+        </div>
       </div>
-      <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Head of Business" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
-        <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. Yaw Boateng</h3>
-        <p class="text-xs sm:text-sm text-muted">Head, Business</p>
+
+      <!-- Headmaster 3 -->
+      <div class="bg-white rounded-3xl border border-gray-100 p-6 sm:p-8 card-hover flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
+        <img
+          src="{{ asset('images/leaders/baffour.jpeg') }}"
+          alt="Mr. Isaac Osei"
+          class="w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-2xl shrink-0"
+          loading="lazy"
+        >
+        <div>
+          <h3 class="font-extrabold text-xl sm:text-2xl text-ink">Mr Kyei Baffour Siaw</h3>
+          <p class="mt-1 font-semibold text-forest">Assistant headmaster, domestic </p>
+          <p class="mt-3 text-muted text-sm sm:text-base leading-relaxed">
+            Oversees academic coordination and staff welfare. Supports the Headmistress in curriculum delivery and teacher development programmes.
+          </p>
+        </div>
       </div>
-      <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Head of General Arts" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
-        <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mrs. Akosua Darko</h3>
-        <p class="text-xs sm:text-sm text-muted">Head, General Arts</p>
-      </div>
-      <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
-        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80" alt="Head of Visual Arts" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
-        <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. Kofi Mensah</h3>
-        <p class="text-xs sm:text-sm text-muted">Head, Visual Arts</p>
-      </div>
-      <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
-        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" alt="Head of Home Economics" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
-        <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mrs. Efua Sarpong</h3>
-        <p class="text-xs sm:text-sm text-muted">Head, Home Economics</p>
-      </div>
-      <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80" alt="Head of Agricultural Science" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
-        <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. Samuel Antwi</h3>
-        <p class="text-xs sm:text-sm text-muted">Head, Agricultural Science</p>
-      </div>
-      <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
-        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=400&q=80" alt="Head of Guidance and Counselling" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
-        <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mrs. Grace Appiah</h3>
-        <p class="text-xs sm:text-sm text-muted">Head, Guidance &amp; Counselling</p>
-      </div>
+
     </div>
+  </div>
+</section>
+
+<!-- ============ DEPARTMENT HEADS ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-14 sm:py-20">
+  <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+    <p class="text-sm font-semibold text-forest flex items-center justify-center gap-2">
+      <span class="w-6 h-px bg-forest"></span> Academics
+    </p>
+    <h2 class="mt-3 sm:mt-4 font-extrabold text-2xl sm:text-4xl tracking-tightish text-ink">
+      Heads of department
+    </h2>
+    <p class="mt-3 sm:mt-4 text-muted text-sm sm:text-base leading-relaxed">
+      The academic leaders guiding each department toward excellence.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
+    <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
+      <img src="{{ asset('images/leaders/vincent.jpeg') }}" alt="Head of Academic Affairs" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
+      <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. VINCENT OSEI BOFFAH</h3>
+      <p class="text-xs sm:text-sm text-muted">Mathematics Department HOD</p>
+    </div>
+    <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
+      <img src="{{ asset('images/leaders/abu.jpeg') }}" alt="Head of General Science" class="w-full h-40 sm:h-52 object-contain rounded-2xl" loading="lazy">
+      <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. ABU RAFIQ</h3>
+      <p class="text-xs sm:text-sm text-muted">General Art Department HOD</p>
+    </div>
+    <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
+      <img src="{{ asset('images/leaders/theresa.jpeg') }}" alt="Head of Business" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
+      <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mrs. Theresa Oswell Mensah</h3>
+      <p class="text-xs sm:text-sm text-muted">Home Economics Department </p>
+    </div>
+    <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
+      <img src="{{ asset('images/leaders/anthony.jpeg') }}" alt="Head of General Arts" class="w-full h-40 sm:h-52 object-contain rounded-2xl" loading="lazy">
+      <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. Anthony Abbey</h3>
+      <p class="text-xs sm:text-sm text-muted">General Science Department HOD</p>
+    </div>
+    <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
+      <img src="{{ asset('images/leaders/george.jpeg') }}" alt="Head of Visual Arts" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
+      <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. George Botchway</h3>
+      <p class="text-xs sm:text-sm text-muted">Business Department HOD</p>
+    </div>
+    <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
+      <img src="{{ asset('images/leaders/stephen.jpeg') }}" alt="Head of Home Economics" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
+      <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. Stephen Agyeman Bediako</h3>
+      <p class="text-xs sm:text-sm text-muted">Languages Department- HOD</p>
+    </div>
+    <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
+      <img src="{{ asset('images/leaders/sly.jpeg') }}" alt="Head of Agricultural Science" class="w-full h-40 sm:h-52 object-contain rounded-2xl" loading="lazy">
+      <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mr. Sylvester Maama</h3>
+      <p class="text-xs sm:text-sm text-muted">Visual Art Department - HOD</p>
+    </div>
+    <!--
+    <div class="text-center bg-white rounded-3xl p-4 sm:p-5 border border-gray-100 card-hover">
+      <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=400&q=80" alt="Head of Guidance and Counselling" class="w-full h-40 sm:h-52 object-cover rounded-2xl" loading="lazy">
+      <h3 class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base text-ink">Mrs. Grace Appiah</h3>
+      <p class="text-xs sm:text-sm text-muted">Head, Guidance &amp; Counselling</p>
+    </div> -->
   </div>
 </section>
 @endsection

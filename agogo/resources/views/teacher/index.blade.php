@@ -50,7 +50,7 @@
         <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 group-hover:bg-asc-green group-hover:text-asc-yellow transition flex items-center justify-center text-xl mb-3">
           <i class="fa-solid fa-file-invoice"></i>
         </div>
-        <span class="text-xs font-bold text-slate-800 group-hover:text-asc-green transition leading-tight">Terminal Report</span>
+        <span class="text-xs font-bold text-slate-800 group-hover:text-asc-green transition leading-tight">Semester Report</span>
       </a>
 
        <!--Tool 3: Attendance-->

@@ -308,4 +308,12 @@ class LessonPlanController extends Controller
         return $pdf->download($filename);
     }   
 
+    public function download(Document $document)
+{
+    $this->authorize('download', $document); // create a Policy
+
+    return Storage::disk($document->disk)
+        ->download($document->file_path, $document->original_name);
+}
+
 }
