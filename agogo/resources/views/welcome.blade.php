@@ -148,9 +148,17 @@
       </article>
       <article class="bg-white rounded-3xl p-4 sm:p-4 card-hover flex flex-col">
         <div class="relative rounded-2xl overflow-hidden video-wrapper">
-          <iframe src="{{asset('videos/intro.mp4')}}" title="A video tour of Agogo State College campus" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video
+                class="w-full h-auto"
+                controls
+                preload="metadata"
+                playsinline
+            >
+                <source src="{{ asset('videos/intro.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <div class="p-2 sm:p-3">
+                <div class="p-2 sm:p-3">
           <h3 class="font-bold text-lg sm:text-xl">Campus Video Tour</h3>
           <p class="mt-2 text-muted text-sm leading-relaxed">Take a walk through our classrooms, laboratories, dormitories and fields — right from your screen.</p>
         </div>

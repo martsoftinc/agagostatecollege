@@ -292,14 +292,9 @@ Route::get('/performance', [PerformanceController::class, 'index'])->name('perfo
 
 
 //Admin routes
-#Route::middleware(['auth', 'admin','verify'])->group(function () {
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
+Route::middleware(['auth', 'admin','verify'])->group(function () {
 
-Route::get('/home', function () {
-    return view('users.dashboard');
-})->name('home');
+
 
 //Profile Management
 Route::get('/admin/profile',          [ProfileController::class, 'show'])->name('admin.profile');
@@ -432,7 +427,7 @@ Route::get('/rankings', [App\Http\Controllers\Admin\RankingController::class, 'i
 
 Route::get('/rankings/export', [App\Http\Controllers\Admin\RankingController::class, 'export'])->name('admin.rankings.export');
 
-#});
+});
 
 
 // ── Two-Factor Challenge (guest: user not fully logged in yet) ────────────────

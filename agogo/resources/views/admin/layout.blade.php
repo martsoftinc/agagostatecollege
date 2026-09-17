@@ -253,7 +253,7 @@
 
     <!-- LOGOUT FORM -->
     <div class="p-4 border-t border-asc-green-light/30">
-      <form method="POST" action="#">
+      <form method="POST" action="/logout">
         @csrf
         <button type="submit" class="w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-rose-300 hover:bg-rose-900/30 font-semibold text-sm transition">
           <i class="fa-solid fa-right-from-bracket w-5 text-center"></i>

@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="p-6" x-data="{
-    addModalOpen: false,
+    addModalOpen: {{ $errors->any() || old('last_name') || old('programme') ? 'true' : 'false' }},
     editModalOpen: false,
     viewModalOpen: false,
     editStudent: {},
@@ -18,7 +18,7 @@
     classesByCourse: @js($classesByCourse ?? []),
     allClasses: @js($allClasses ?? []),
 
-    addCourse: '{{ old('course', '') }}',
+    addCourse: '{{ old('programme', '') }}',
     addClass: '{{ old('class', '') }}',
 
     addPreview: null,
@@ -122,6 +122,19 @@
     </div>
 
     {{-- FLASH MESSAGES --}}
+
+    {{-- VALIDATION / GENERAL ERRORS --}}
+    @if ($errors->any())
+        <div class="mb-4 p-4 text-xs text-rose-800 bg-rose-50 border border-rose-200 rounded-xl">
+            <p class="font-bold mb-2">Please fix the following errors:</p>
+            <ul class="list-disc pl-5 space-y-1">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     @if(session('success'))
         <div class="mb-4 p-4 text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-between">
             <span>{{ session('success') }}</span>
@@ -181,52 +194,70 @@
     </div>
 
     {{-- FILTER BAR --}}
-    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm mb-6">
-        <form method="GET" action="{{ route('admin.students.index') }}" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-            <div>
-                <input type="text" name="search" value="{{ $search }}"
-                       placeholder="Search name, ID or phone..."
-                       class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none">
-            </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm mb-6">
+            <form method="GET" action="{{ route('admin.students.index') }}" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+                
+                {{-- Search --}}
+                <div>
+                    <input type="text" name="search" value="{{ $search }}"
+                        placeholder="Search name, ID or phone..."
+                        class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none">
+                </div>
 
-            <div>
-                <select name="course" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
-                    <option value="">All Courses</option>
-                    @foreach($courses as $c)
-                        <option value="{{ $c }}" {{ $courseFilter === $c ? 'selected' : '' }}>{{ $c }}</option>
-                    @endforeach
-                </select>
-            </div>
+                {{-- Course --}}
+                <div>
+                    <select name="course" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
+                        <option value="">All Courses</option>
+                        @foreach($courses as $c)
+                            <option value="{{ $c }}" {{ $courseFilter === $c ? 'selected' : '' }}>{{ $c }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <div>
-                <select name="class" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
-                    <option value="">All Classes</option>
-                    @foreach($allClasses as $c)
-                        <option value="{{ $c }}" {{ $classFilter === $c ? 'selected' : '' }}>{{ $c }}</option>
-                    @endforeach
-                </select>
-            </div>
+                {{-- Class --}}
+                <div>
+                    <select name="class" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
+                        <option value="">All Classes</option>
+                        @foreach($allClasses as $c)
+                            <option value="{{ $c }}" {{ $classFilter === $c ? 'selected' : '' }}>{{ $c }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <div>
-                <select name="status" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
-                    <option value="">All Statuses</option>
-                    <option value="Active" {{ $statusFilter === 'Active' ? 'selected' : '' }}>Active</option>
-                    <option value="Completed" {{ $statusFilter === 'Completed' ? 'selected' : '' }}>Completed (WASSCE)</option>
-                    <option value="Suspended" {{ $statusFilter === 'Suspended' ? 'selected' : '' }}>Suspended</option>
-                </select>
-            </div>
+                {{-- Status --}}
+                <div>
+                    <select name="status" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
+                        <option value="">All Statuses</option>
+                        <option value="Active" {{ $statusFilter === 'Active' ? 'selected' : '' }}>Active</option>
+                        <option value="Completed" {{ $statusFilter === 'Completed' ? 'selected' : '' }}>Completed (WASSCE)</option>
+                        <option value="Suspended" {{ $statusFilter === 'Suspended' ? 'selected' : '' }}>Suspended</option>
+                    </select>
+                </div>
 
-            <div class="flex items-center gap-2">
-                <button type="submit" class="w-full py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition">
-                    Filter
-                </button>
-                <a href="{{ route('admin.students.index') }}"
-                   class="py-2 px-3 text-xs text-center text-slate-500 hover:text-slate-700 bg-slate-50 border border-slate-200 rounded-xl transition">
-                    Reset
-                </a>
-            </div>
-        </form>
-    </div>
+                {{-- House (NEW) --}}
+                <div>
+                    <select name="house" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
+                        <option value="">All Houses</option>
+                        @foreach($houses as $h)
+                            <option value="{{ $h }}" {{ $houseFilter === $h ? 'selected' : '' }}>{{ $h }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                {{-- Buttons --}}
+                <div class="flex items-center gap-2">
+                    <button type="submit" class="w-full py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition">
+                        Filter
+                    </button>
+                    <a href="{{ route('admin.students.index') }}"
+                    class="py-2 px-3 text-xs text-center text-slate-500 hover:text-slate-700 bg-slate-50 border border-slate-200 rounded-xl transition">
+                        Reset
+                    </a>
+                </div>
+            </form>
+        </div>
+
+    
 
     {{-- STUDENTS TABLE --}}
     <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
@@ -440,7 +471,7 @@
                                         class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
                                     <option value="">-- Select Course --</option>
                                     @foreach($courses as $c)
-                                        <option value="{{ $c }}">{{ $c }}</option>
+                                        <option value="{{ $c }}" {{ old('programme') == $c ? 'selected' : '' }}>{{ $c }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -489,10 +520,20 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">House Allocation</label>
-                                <input type="text" name="house" value="{{ old('house') }}" placeholder="e.g. House 1"
-                                       class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none">
-                            </div>
+                                    <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">House Allocation</label>
+                                    <select name="house"
+                                            class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
+                                        <option value="">-- Select House --</option>
+                                        <option value="Afriyie House" {{ old('house') == 'Afriyie House' ? 'selected' : '' }}>Afriyie House</option>
+                                        <option value="Frimpong House" {{ old('house') == 'Frimpong House' ? 'selected' : '' }}>Frimpong House</option>
+                                        <option value="Kwakye Tutu House" {{ old('house') == 'Kwakye Tutu House' ? 'selected' : '' }}>Kwakye Tutu House</option>
+                                        <option value="Akuoko Sarpong House" {{ old('house') == 'Akuoko Sarpong House' ? 'selected' : '' }}>Akuoko Sarpong House</option>
+                                        <option value="Owusu House" {{ old('house') == 'Owusu House' ? 'selected' : '' }}>Owusu House</option>
+                                        <option value="Kwaku Duah House" {{ old('house') == 'Kwaku Duah House' ? 'selected' : '' }}>Kwaku Duah House</option>
+                                        <option value="Kyei House" {{ old('house') == 'Kyei House' ? 'selected' : '' }}>Kyei House</option>
+                                        <option value="Bonsu House" {{ old('house') == 'Bonsu House' ? 'selected' : '' }}>Bonsu House</option>
+                                    </select>
+                                </div>
                         </div>
                     </div>
 
@@ -511,8 +552,8 @@
                                        class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none">
                             </div>
                             <div>
-                                <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Guardian Email <span class="text-rose-500">*</span></label>
-                                <input type="text" name="email" value="{{ old('email') }}" required
+                                <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Guardian Email</label>
+                                <input type="text" name="email" value="{{ old('email') }}" 
                                        class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none">
                             </div>
                             <div>
@@ -718,10 +759,20 @@
                                     <option value="Suspended">Suspended</option>
                                 </select>
                             </div>
-                            <div>
+                               <div>
                                 <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">House</label>
-                                <input type="text" name="house" x-model="editStudent.house"
-                                       class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none">
+                                <select name="house" x-model="editStudent.house"
+                                        class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:border-asc-green focus:outline-none bg-white">
+                                    <option value="">-- Select House --</option>
+                                    <option value="Afriyie House">Afriyie House</option>
+                                    <option value="Frimpong House">Frimpong House</option>
+                                    <option value="Kwakye Tutu House">Kwakye Tutu House</option>
+                                    <option value="Akuoko Sarpong House">Akuoko Sarpong House</option>
+                                    <option value="Owusu House">Owusu House</option>
+                                    <option value="Kwaku Duah House">Kwaku Duah House</option>
+                                    <option value="Kyei House">Kyei House</option>
+                                    <option value="Bonsu House">Bonsu House</option>
+                                </select>
                             </div>
                         </div>
                     </div>

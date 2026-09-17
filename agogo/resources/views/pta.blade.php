@@ -31,7 +31,7 @@
       Meet the parents guiding the association this term.
     </p>
   </div>
-  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap7">
     <div class="bg-white border border-gray-100 rounded-3xl p-6 text-center card-hover">
       <img
         src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80"
@@ -42,26 +42,8 @@
       <h3 class="mt-4 font-semibold text-base sm:text-lg text-ink">Mr. Emmanuel Ofori</h3>
       <p class="text-sm text-forest font-medium mt-1">Chairman</p>
     </div>
-    <div class="bg-white border border-gray-100 rounded-3xl p-6 text-center card-hover">
-      <img
-        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=300&q=80"
-        alt="PTA Vice Chairperson"
-        class="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-full mx-auto"
-        loading="lazy"
-      >
-      <h3 class="mt-4 font-semibold text-base sm:text-lg text-ink">Mrs. Linda Asare</h3>
-      <p class="text-sm text-forest font-medium mt-1">Vice Chairperson</p>
-    </div>
-    <div class="bg-white border border-gray-100 rounded-3xl p-6 text-center card-hover">
-      <img
-        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
-        alt="PTA Secretary"
-        class="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-full mx-auto"
-        loading="lazy"
-      >
-      <h3 class="mt-4 font-semibold text-base sm:text-lg text-ink">Mr. Daniel Kusi</h3>
-      <p class="text-sm text-forest font-medium mt-1">Secretary</p>
-    </div>
+    
+    
     <div class="bg-white border border-gray-100 rounded-3xl p-6 text-center card-hover">
       <img
         src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80"

@@ -121,7 +121,7 @@ class LoginController extends Controller
 
     switch ($userRole) {
         case 'admin':
-            return redirect()->route('home');
+            return redirect()->route('admin.dashboard');
             break;
         case 'user':
             return redirect()->route('dashboard');

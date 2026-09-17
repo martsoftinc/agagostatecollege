@@ -25,9 +25,9 @@ return new class extends Migration
             $table->enum('role', ['admin', 'teacher', 'student'])->default('student');
            
             // Contact details
-            $table->string('phone', 20)->unique()->nullable();;
-            $table->boolean('is_active')->default(true)->nullable();;
-            $table->string('email')->unique();
+            $table->string('phone', 20)->unique()->nullable();
+            $table->boolean('is_active')->default(true)->nullable();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             // Email verification code
             $table->string('email_verification_code', 6)->nullable();

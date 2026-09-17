@@ -70,7 +70,7 @@
       <!-- Headmaster 1 -->
       <div class="bg-white rounded-3xl border border-gray-100 p-6 sm:p-8 card-hover flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
         <img
-          src="{{ asset('images/leaders/default.png') }}"
+          src="{{ asset('images/leaders/assis3.jpeg') }}"
           alt="Mr. Kwesi Mensah"
           class="w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-2xl shrink-0"
           loading="lazy"
@@ -87,13 +87,13 @@
       <!-- Headmaster 2 -->
       <div class="bg-white rounded-3xl border border-gray-100 p-6 sm:p-8 card-hover flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
         <img
-          src="{{ asset('images/leaders/default.png') }}"
+          src="{{ asset('images/leaders/assis2.jpeg') }}"
           alt="Mr. Isaac Osei"
           class="w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-2xl shrink-0"
           loading="lazy"
         >
         <div>
-          <h3 class="font-extrabold text-xl sm:text-2xl text-ink">Mr. Nicholas Marfo Budu</h3>
+          <h3 class="font-extrabold text-xl sm:text-2xl text-ink">Rev. Nicholas Marfo Budu</h3>
           <p class="mt-1 font-semibold text-forest">Assistant headmaster, academic </p>
           <p class="mt-3 text-muted text-sm sm:text-base leading-relaxed">
             Oversees academic coordination and staff welfare. Supports the Headmistress in curriculum delivery and teacher development programmes.
@@ -104,13 +104,13 @@
       <!-- Headmaster 3 -->
       <div class="bg-white rounded-3xl border border-gray-100 p-6 sm:p-8 card-hover flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
         <img
-          src="{{ asset('images/leaders/baffour.jpeg') }}"
+          src="{{ asset('images/leaders/assis1.jpeg') }}"
           alt="Mr. Isaac Osei"
-          class="w-32 h-32 sm:w-36 sm:h-36 object-cover rounded-2xl shrink-0"
+          class="w-32 h-32 sm:w-36 sm:h-36 object-contain rounded-2xl shrink-0"
           loading="lazy"
         >
         <div>
-          <h3 class="font-extrabold text-xl sm:text-2xl text-ink">Mr Kyei Baffour Siaw</h3>
+          <h3 class="font-extrabold text-xl sm:text-2xl text-ink">Mr Kwame Siaw Kyei-Baffour</h3>
           <p class="mt-1 font-semibold text-forest">Assistant headmaster, domestic </p>
           <p class="mt-3 text-muted text-sm sm:text-base leading-relaxed">
             Oversees academic coordination and staff welfare. Supports the Headmistress in curriculum delivery and teacher development programmes.

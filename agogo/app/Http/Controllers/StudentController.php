@@ -22,6 +22,7 @@ class StudentController extends Controller
         $courseFilter = $request->query('course');
         $classFilter  = $request->query('class');
         $statusFilter = $request->query('status');
+        $houseFilter  = $request->query('house');
 
         $students = User::query()
             ->where('role', 'student')
@@ -38,11 +39,23 @@ class StudentController extends Controller
             ->when($courseFilter, fn ($q) => $q->where('course', $courseFilter))
             ->when($classFilter,  fn ($q) => $q->where('class', $classFilter))
             ->when($statusFilter, fn ($q) => $q->where('status', $statusFilter))
+            ->when($houseFilter,  fn ($q) => $q->where('house', $houseFilter))
             ->latest()
             ->paginate(15)
             ->withQueryString();
 
-        Log::info('Students fetched', ['count' => $students->total()]);
+            $houses = [                                           // ← NEW (fixed list)
+                        'Afriyie House',
+                        'Frimpong House',
+                        'Kwakye Tutu House',
+                        'Akuoko Sarpong House',
+                        'Owusu House',
+                        'Kwaku Duah House',
+                        'Kyei House',
+                        'Bonsu House',
+                    ];
+
+        //Log::info('Students fetched', ['count' => $students->total()]);
 
         $courses = [
             'General Science',
@@ -50,7 +63,7 @@ class StudentController extends Controller
             'General Arts',
             'Visual Arts',
             'Home Economics',
-            //'Agricultural Science',
+            
         ];
         $classStreams = \App\Models\ClassStream::with(['schoolClass', 'stream'])
             ->where('is_active', true)
@@ -100,9 +113,87 @@ class StudentController extends Controller
             'courseFilter',
             'classFilter',
             'classStreams',
-            'statusFilter'
+            'statusFilter',
+            'houseFilter',  
+            'houses'       
         ));
     }
+
+    public function store(Request $request)
+{
+    Log::info('StudentController@store started', [
+        'all_input' => $request->except(['profile_picture']),
+        'has_file'  => $request->hasFile('profile_picture'),
+    ]);
+
+    try {
+        $validated = $request->validate([
+            'student_id'          => 'nullable|string|max:50|unique:users,student_id',
+            'class_stream_id'     => 'required|exists:class_streams,id',
+            'programme'           => 'required|string|max:255',
+            'boarding'            => 'required|in:Day,Boarding',
+            'class'               => 'required|string|max:255',
+            'track'               => ['required', Rule::in(['Green', 'Gold', 'Single Track'])],
+            'status'              => ['nullable', Rule::in(['Active', 'Completed', 'Suspended'])],
+            'house'               => 'nullable|string|max:255',
+            'last_name'           => 'required|string|max:255',
+            'first_name'          => 'required|string|max:255',
+            'other_names'         => 'nullable|string|max:255',
+            'date_of_birth'       => 'required|date',
+            'place_of_residence'  => 'nullable|string|max:255',
+            'address'             => 'nullable|string',
+            'guardian_name'       => 'required|string|max:255',
+            'email'               => 'nullable|email|max:255|unique:users,email',
+            'guardian_phone'      => 'required|string|max:20',
+            'guardian_occupation' => 'nullable|string|max:255',
+            'jhs_previous_school' => 'nullable|string|max:255',
+            'jhs_index_number'    => 'nullable|string|max:50',
+            'jhs_position_held'   => 'nullable|string|max:255',
+            'interests_hobbies'   => 'nullable|string',
+            'medical_conditions'  => 'nullable|string',
+            'profile_picture'     => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,jfif|max:2048',
+        ]);
+
+        // Keep both columns in sync (table shows programme, some places use course)
+        $validated['course'] = $validated['programme'];
+        $validated['role']   = 'student';
+        $validated['status'] = $validated['status'] ?? 'Active';
+
+        if ($request->hasFile('profile_picture')) {
+            $path = $request->file('profile_picture')->store('profile_pictures', 'public');
+            $validated['profile_picture'] = $path;
+            Log::info('Profile picture stored', ['path' => $path]);
+        }
+
+        $student = User::create($validated);
+
+        Log::info('Student created successfully', [
+            'id'         => $student->id,
+            'student_id' => $student->student_id,
+        ]);
+
+        return redirect()->route('admin.students.index')
+            ->with('success', 'Student registered successfully!');
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        Log::error('Validation failed on store', [
+            'errors' => $e->errors(),
+            'input'  => $request->except(['profile_picture']),
+        ]);
+        throw $e; // Laravel will redirect back with $errors + old input
+    } catch (\Exception $e) {
+        Log::error('Student store failed', [
+            'message' => $e->getMessage(),
+            'file'    => $e->getFile(),
+            'line'    => $e->getLine(),
+        ]);
+
+        return redirect()->back()
+            ->withInput()
+            ->with('error', 'Failed to register student: ' . $e->getMessage());
+    }
+}
+
+    /*  OLD STORE FUNCTION
 
     public function store(Request $request)
     {
@@ -183,6 +274,8 @@ class StudentController extends Controller
         }
     }
 
+    */
+
     public function update(Request $request, User $student)
     {
         Log::info('StudentController@update started', [
@@ -210,7 +303,7 @@ class StudentController extends Controller
                 'date_of_birth'       => 'required|date',
                 'place_of_residence'  => 'nullable|string|max:255',
                 'address'             => 'nullable|string',
-                'email'             =>   'email|string',
+                'email'             =>   'nullable|email|string',
                 'guardian_name'       => 'required|string|max:255',
                 'guardian_phone'      => 'required|string|max:20',
                 'guardian_occupation' => 'nullable|string|max:255',
@@ -326,6 +419,7 @@ class StudentController extends Controller
         $courseFilter = $request->query('course');
         $classFilter  = $request->query('class');
         $statusFilter = $request->query('status');
+        $houseFilter  = $request->query('house');
 
         $students = User::query()
             ->where('role', 'student')
@@ -341,6 +435,7 @@ class StudentController extends Controller
             ->when($courseFilter, fn ($q) => $q->where('course', $courseFilter))
             ->when($classFilter,  fn ($q) => $q->where('class', $classFilter))
             ->when($statusFilter, fn ($q) => $q->where('status', $statusFilter))
+            ->when($houseFilter,  fn ($q) => $q->where('house', $houseFilter))
             ->orderBy('last_name')
             ->get();
 
